@@ -1,7 +1,9 @@
+import { heroCoverImage } from "../../../assets/main-images";
+
 export const HeroSection = () => {
     return (
         <div className="cover-div">
-            <img className="img-responsive cover-img" src="https://raw.githubusercontent.com/sri-rishi/nakshatra-cam-ecomm/dev/assests/images/cover-image.jpg" alt="Cover image" loading="lazy" />
+            <img className="img-responsive cover-img" src={heroCoverImage} alt="Cover-image" />
             <div className="cover-text-box flex-column justify-center">
                 <div className="cover-heading md-heading">
                     Collect moments not things
