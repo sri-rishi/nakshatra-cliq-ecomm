@@ -1,15 +1,13 @@
 import './App.css';
 import { HeroSection } from './pages/Home/components/HeroSection';
-import { Footer, Navbar } from './Components';
-
+import { NewArrivalSection } from './pages/Home/components/NewArrivalSection';
 
 
 function App() {
   return (
     <div className="App">
       <HeroSection />
-      <Navbar />
-      <Footer />
+      <NewArrivalSection />
     </div>
   );
 }
