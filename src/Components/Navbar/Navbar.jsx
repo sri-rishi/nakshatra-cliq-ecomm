@@ -1,4 +1,4 @@
-import {FaUserCircle, AiFillHeart, FaShoppingCart, GiHamburgerMenu, FaSearch} from "../../assets/icons";
+import {FaUserCircle, AiFillHeart, FaShoppingCart, GiHamburgerMenu} from "../../assets/icons";
 import { SearchBar } from "./SearchBar";
 
 export const Navbar = () => {
