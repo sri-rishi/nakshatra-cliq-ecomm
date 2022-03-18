@@ -16,8 +16,8 @@ export const HomePage = () => {
                 <CategorySection />
                 <BrandNameSection />
                 <InterestCategorySection />
-                <Footer />
             </main>
+            <Footer />
         </div>
     )
 }
