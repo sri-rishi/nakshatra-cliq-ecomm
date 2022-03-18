@@ -1,13 +1,11 @@
 import './App.css';
-import { HeroSection } from './pages/Home/components/HeroSection';
-import { NewArrivalSection } from './pages/Home/components/NewArrivalSection';
+import { HomePage } from './pages/Home/HomePage';
 
 
 function App() {
   return (
     <div className="App">
-      <HeroSection />
-      <NewArrivalSection />
+      <HomePage />
     </div>
   );
 }
