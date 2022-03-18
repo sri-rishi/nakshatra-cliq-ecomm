@@ -2,7 +2,7 @@ import { Footer } from "../../Components/Footer/Footer"
 import { Navbar } from "../../Components/Navbar/Navbar"
 import { CategorySection } from "./components/CategorySection"
 import { HeroSection } from "./components/HeroSection"
-import { NewArrivalSection } from "./components/NewArrivalSection"
+import { NewCategorySection } from "./components/NewCategorySection"
 
 export const HomePage = () => {
     return (
@@ -10,7 +10,7 @@ export const HomePage = () => {
             <Navbar />
             <main class="main-div flex-column justify-center">
                 <HeroSection />
-                <NewArrivalSection />
+                <NewCategorySection />
                 <CategorySection />
                 <Footer />
             </main>

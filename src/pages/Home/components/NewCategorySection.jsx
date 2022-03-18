@@ -1,6 +1,6 @@
 import { comingSoonCoverImage, newArrivalCoverImage } from "../../../assets/main-images"
 
-export const NewArrivalSection = () => {
+export const NewCategorySection = () => {
     const newArrivalCover = [
         {
             id: 1,
