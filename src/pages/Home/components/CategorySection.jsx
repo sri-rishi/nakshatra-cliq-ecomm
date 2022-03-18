@@ -1,4 +1,4 @@
-import { bridgeCameraCoverImage, compactCameraCoverImage, dslrCoverImage, mirrorlessCoverImage } from "../../../assets/main-images"
+import { bridgeCameraCoverImage, compactCameraCoverImage, dslrCoverImage, mirrorLessCoverImage } from "../../../assets/main-images"
 
 export const CategorySection = () => {
     const categorySectionItems = [
@@ -15,7 +15,7 @@ export const CategorySection = () => {
         {
             id: 3,
             categoryName: "Mirrorless",
-            imageSrc: mirrorlessCoverImage
+            imageSrc: mirrorLessCoverImage
         },
         {
             id: 4,

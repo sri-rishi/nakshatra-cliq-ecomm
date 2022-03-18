@@ -3,8 +3,8 @@ import newArrivalCoverImage from "./images/new-arrivals-cover.jpg";
 import comingSoonCoverImage from './images/coming-soon-cover.jfif';
 import dslrCoverImage from "./images/dslr-cover-image.png";
 import compactCameraCoverImage from "./images/compact-camera-cover.jpg";
-import mirrorlessCoverImage from "./images/mirrorless-cover.jpg";
+import mirrorLessCoverImage from "./images/mirrorless-cover.jpg";
 import bridgeCameraCoverImage from "./images/bridge-camera-cover.jpg";
 
 
-export {heroCoverImage, comingSoonCoverImage, newArrivalCoverImage, dslrCoverImage, compactCameraCoverImage, mirrorlessCoverImage, bridgeCameraCoverImage};
+export {heroCoverImage, comingSoonCoverImage, newArrivalCoverImage, dslrCoverImage, compactCameraCoverImage, mirrorLessCoverImage, bridgeCameraCoverImage};
