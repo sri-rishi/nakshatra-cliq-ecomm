@@ -16,7 +16,6 @@
 
 .cover-img {
     height: 100vh;
-    object-fit: cover;
 }
 
 .cover-text-box {
@@ -57,7 +56,6 @@
 .new-div-img {
     border-radius: 10px;
     height: 100%;
-    object-fit: cover;
 }
 
 .text-overlay {
@@ -71,14 +69,14 @@
 
 .category-item-box {
     width: 80%;
+    gap: 4rem;
 }
 
 .category-items {
-    height: max-content;
-    padding: 1rem;
     text-align: center;
-    grid-template-rows: 2fr 0.5fr;
+    grid-template-rows: 2fr 0.2fr;
     font-weight: 600; 
+    gap: 0;
     font-size: 20px;
     color: var(--secondary-color);
     background: var(--white-color);
@@ -88,6 +86,12 @@
 
 .category-items:hover {
     box-shadow: 0 0 16px 3px var(--light-gray-color);
+}
+
+.category-images {
+    border-radius: 10px 10px 0 0;
+    height: 20rem;
+    width: 25rem;
 }
 
 .brands-img-div {
