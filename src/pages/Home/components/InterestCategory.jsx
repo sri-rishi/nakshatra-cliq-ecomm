@@ -25,7 +25,7 @@ export const InterestCategorySection = () => {
     ]
     return(
         <div className="flex-column justify-center align-center gap-2">
-            <h3 className="md-heading">Top Featured Brands</h3>
+            <h3 className="md-heading">Shop By Interest</h3>
             <div className="flex-row align-center justify-evenly gap-2">
                 {
                     brandLogoData.map(({id, imageSrc, altText}) => (

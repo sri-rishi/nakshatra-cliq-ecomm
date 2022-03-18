@@ -25,7 +25,7 @@ export const CategorySection = () => {
     ]
     return (
         <div class="flex-column justify-center align-center gap-2">
-            <h3 class="md-heading">Category</h3>
+            <h3 class="md-heading">Shop By Category</h3>
             <div class="category-item-box flex-row justify-center align-center">
                 {
                     categorySectionItems.map(({id, categoryName, imageSrc}) => (
