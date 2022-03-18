@@ -103,6 +103,16 @@
     transform: scale(1.2);
 }
 
+.interest-category-div {
+    width: 15rem;
+    transition: all .2s ease-out;
+}
+
+.interest-category-div:hover {
+    transform: scale(1.1)
+}
+
+
 .footer-box {
     margin-top: 4rem; 
     width: 100%;
