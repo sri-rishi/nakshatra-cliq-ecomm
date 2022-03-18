@@ -8,7 +8,11 @@ import bridgeCameraCoverImage from "./images/bridge-camera-cover.jpg";
 import sonyLogoImage from "./images/sony-logo.jpg";
 import canonLogoImage from "./images/canon-logo-removebg-preview.png";
 import nikonLogoImage from "./images/nikon-logo-removebg-preview.png";
-import fujifilmLogoImage from "./images/Fujifilm_logo_logotype-removebg-preview.png"
+import fujifilmLogoImage from "./images/Fujifilm_logo_logotype-removebg-preview.png";
+import instantInterestLogoImage from "./images/instantIntrest.jpg";
+import travelInterestLogoImage from "./images/travelIntrest.jpg";
+import weddingInterestLogoImage from "./images/weddingIntrest.jpg";
+import wildlifeInterestLogoImage from "./images/wildLifeIntrest.jpg"
 
 
-export {heroCoverImage, comingSoonCoverImage, newArrivalCoverImage, dslrCoverImage, compactCameraCoverImage, mirrorLessCoverImage, bridgeCameraCoverImage, sonyLogoImage, canonLogoImage, nikonLogoImage, fujifilmLogoImage};
+export {heroCoverImage, comingSoonCoverImage, newArrivalCoverImage, dslrCoverImage, compactCameraCoverImage, mirrorLessCoverImage, bridgeCameraCoverImage, sonyLogoImage, canonLogoImage, nikonLogoImage, fujifilmLogoImage, instantInterestLogoImage, travelInterestLogoImage, weddingInterestLogoImage, wildlifeInterestLogoImage};
