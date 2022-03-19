@@ -1,10 +1,5 @@
-import { Footer } from "../../Components/Footer/Footer";
-import { Navbar } from "../../Components/Navbar/Navbar";
-import { BrandNameSection } from "./components/BrandCategory";
-import { CategorySection } from "./components/CategorySection";
-import { HeroSection } from "./components/HeroSection";
-import { InterestCategorySection } from "./components/InterestCategory";
-import { NewCategorySection } from "./components/NewCategorySection";
+import { BrandNameSection, CategorySection, Footer, HeroSection, InterestCategorySection, Navbar, NewCategorySection } from "./components"
+
 
 export const HomePage = () => {
     return (
