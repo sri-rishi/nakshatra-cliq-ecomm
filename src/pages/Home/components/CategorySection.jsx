@@ -1,28 +1,7 @@
-import { bridgeCameraCoverImage, compactCameraCoverImage, dslrCoverImage, mirrorLessCoverImage } from "../../../assets/main-images"
+import { categorySectionItems } from "../../../data/categoryCover.data"
 
 export const CategorySection = () => {
-    const categorySectionItems = [
-        {
-            id: 1, 
-            categoryName: "DSLR",
-            imageSrc: dslrCoverImage
-        },
-        {
-            id: 2,
-            categoryName: "Compact",
-            imageSrc: compactCameraCoverImage
-        },
-        {
-            id: 3,
-            categoryName: "Mirrorless",
-            imageSrc: mirrorLessCoverImage
-        },
-        {
-            id: 4,
-            categoryName: "Bridge",
-            imageSrc: bridgeCameraCoverImage
-        }
-    ]
+    
     return (
         <div class="flex-column justify-center align-center gap-2">
             <h3 class="md-heading">Shop By Category</h3>

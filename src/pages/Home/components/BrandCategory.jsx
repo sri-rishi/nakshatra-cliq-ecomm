@@ -1,28 +1,6 @@
-import { canonLogoImage, fujifilmLogoImage, nikonLogoImage, sonyLogoImage } from "../../../assets/main-images"
+import { brandLogoData } from "../../../data/brandCategoryCover.data"
 
-export const BrandNameSection = () => {
-    const brandLogoData = [
-        {
-            id: 1, 
-            imageSrc: canonLogoImage,
-            altText: "Canon Logo"
-        },
-        {
-            id: 2, 
-            imageSrc: nikonLogoImage,
-            altText: "Nikon Logo"
-        },
-        {
-            id: 3, 
-            imageSrc: fujifilmLogoImage,
-            altText: "Fujifilm Logo"
-        },
-        {
-            id: 4, 
-            imageSrc: sonyLogoImage,
-            altText: "Sony Logo"
-        }
-    ]
+export const BrandNameSection = () => {   
     return(
         <div className="flex-column justify-center align-center gap-3">
             <h3 className="md-heading">Shop By Brands</h3>

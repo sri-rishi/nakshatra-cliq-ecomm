@@ -1,18 +1,7 @@
-import { comingSoonCoverImage, newArrivalCoverImage } from "../../../assets/main-images"
+import { newArrivalCover } from "../../../data/newCategoryCover.data"
 
 export const NewCategorySection = () => {
-    const newArrivalCover = [
-        {
-            id: 1,
-            imageUrl: newArrivalCoverImage,
-            description: "New Arrivals"
-        },
-        {
-            id: 2,
-            imageUrl: comingSoonCoverImage,
-            description: "Coming Soon"
-        }
-    ]
+    
     return (
         <div className="new-section flex-column justify-center align-center gap-2">
             <h3 className="md-heading">New Collections</h3>
