@@ -1,4 +1,4 @@
-import {BsCodeSlash, BsGithub, ImLinkedin, BsTwitter, SiMaildotru} from "../../Assests/icons";
+import {BsCodeSlash, BsGithub, ImLinkedin, BsTwitter, SiMaildotru} from "../../assets/icons";
 export const Footer = () => {
     return (
         <footer className="footer-box flex-column justify-center align-center gap-2">

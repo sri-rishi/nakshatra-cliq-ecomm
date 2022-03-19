@@ -1,4 +1,4 @@
-import {FaSearch} from "../../Assests/icons";
+import {FaSearch} from "../../assets/icons";
 
 
 export const SearchBar = () => {
