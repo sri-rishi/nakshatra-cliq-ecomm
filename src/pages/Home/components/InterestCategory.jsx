@@ -1,4 +1,5 @@
-import { interestCoverData } from "../../../data/interestCategoryCover.data"
+import { interestCoverData } from "../../../data"
+
 
 export const InterestCategorySection = () => {
     return(

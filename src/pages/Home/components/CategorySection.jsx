@@ -1,4 +1,4 @@
-import { categorySectionItems } from "../../../data/categoryCover.data"
+import { categorySectionItems } from "../../../data"
 
 export const CategorySection = () => {
     

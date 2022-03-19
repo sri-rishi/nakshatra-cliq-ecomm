@@ -1,4 +1,4 @@
-import { newArrivalCover } from "../../../data/newCategoryCover.data"
+import { newArrivalCover } from "../../../data"
 
 export const NewCategorySection = () => {
     

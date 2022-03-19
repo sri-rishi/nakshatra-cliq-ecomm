@@ -1,4 +1,5 @@
-import { brandLogoData } from "../../../data/brandCategoryCover.data"
+import { brandLogoData } from "../../../data"
+
 
 export const BrandNameSection = () => {   
     return(
