@@ -22,13 +22,13 @@ export const SideBar = () => {
                 <ul className="m-vl-1 filter-items">
                     <li className="align-center">
                         <label htmlFor="price-l-to-h">
-                            <input className="filter-inputs" type="radio" id="price-l-to-h" name="price-l-to-h" aria-label="Price Low to High" />
+                            <input className="filter-inputs" type="radio" id="price-l-to-h" name="sort" aria-label="Price Low to High" />
                             Price - Low to High
                         </label>
                     </li>
                     <li>
                         <label htmlFor="price-h-to-l">
-                            <input className="filter-inputs" id="price-h-to-l" type="radio" name="price-h-to-l"  aria-label="Price High to Low" />
+                            <input className="filter-inputs" id="price-h-to-l" type="radio" name="sort"  aria-label="Price High to Low" />
                             Price - High to Low
                         </label>
                     </li>
