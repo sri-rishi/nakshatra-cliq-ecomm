@@ -24,11 +24,16 @@
 }
 
 .cart-img {
-    height: 8rem;
+    height: 15rem;
+    border-radius: 4px 4px 0 0;
 }
 
 .product-card {
     max-height: 25rem;
+}
+
+.card-dis-price {
+    font-size: 1.3rem;
 }
 
 @media only screen and (max-width: 77.5em) {
