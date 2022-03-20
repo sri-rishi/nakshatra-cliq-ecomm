@@ -1,4 +1,5 @@
-import { Button } from "../../../../Components/Buttons/Button"
+
+import { Button } from "../../../../Components/index"
 import { brandLogoData, categorySectionItems, interestCoverData } from "../../../../data"
 
 export const SideBar = () => {
