@@ -1,6 +1,6 @@
 
 import { Button } from "../../../../Components/index"
-import { brandLogoData, categorySectionItems, interestCoverData } from "../../../../data"
+import { brandLogoData, categorySectionItems, interestCoverData, ratingData } from "../../../../data"
 
 export const SideBar = () => {
     return (
@@ -80,6 +80,23 @@ export const SideBar = () => {
                                 <label htmlFor={`${interestType}-interest`}>
                                     <input className="filter-inputs" id={`${interestType}-interest`} type="checkbox" name={`${interestType}-interest`} aria-label={`${interestType} Camera checkbox`} />
                                     {interestType}
+                                </label>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+            <div className="filter-sections m-hr-1 flex-column">
+                <div className="flex-row align-center justify-between">
+                    <span className="sub-filt-head font-weight-5">Ratings</span>
+                </div>
+                <ul className="m-vl-1 filter-items">
+                    {
+                        ratingData.map(({id, inputValue, ratingValue}) => (
+                            <li key={id}>
+                                <label htmlFor={`${ratingValue}-interest`}>
+                                    <input className="filter-inputs" id={`${ratingValue}-interest`} type="checkbox" name={`${ratingValue}-rating`} aria-label={`${ratingValue} ratings checkbox`} />
+                                    {inputValue}
                                 </label>
                             </li>
                         ))
