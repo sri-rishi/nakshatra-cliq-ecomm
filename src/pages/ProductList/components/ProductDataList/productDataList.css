@@ -1,0 +1,62 @@
+.main-box {
+    grid-area: main;
+    justify-items: center;
+    padding: 3rem 1rem 2rem 0;
+    row-gap: 4rem;
+}
+
+.card-vl-cta-section {
+    margin-top: 1rem;
+}
+
+.img-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+} 
+
+.text-ellipsis-overflow{
+    max-width: 16rem; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cart-img {
+    height: 15rem;
+    border-radius: 4px 4px 0 0;
+}
+
+.product-card {
+    max-height: 25rem;
+}
+
+.card-dis-price {
+    font-size: 1.3rem;
+}
+
+@media only screen and (max-width: 77.5em) {
+    .main-box {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 49em) {
+    .productList-temp {
+        grid-template-areas: 
+            "navbar navbar"
+            "main main"
+        ;
+    }
+
+    .main-box {
+        padding: 3rem 8px 6rem;
+    }
+}
+
+@media only screen and (max-width: 33.75em) {
+    .main-box {
+        grid-template-columns: 1fr;
+    }
+} 

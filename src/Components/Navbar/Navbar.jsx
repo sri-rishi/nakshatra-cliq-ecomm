@@ -1,4 +1,5 @@
 import {FaUserCircle, AiFillHeart, FaShoppingCart, GiHamburgerMenu} from "../../assets/icons";
+import { Button } from "../index";
 import { SearchBar } from "./SearchBar";
 
 export const Navbar = () => {
@@ -6,9 +7,7 @@ export const Navbar = () => {
         <div>
             <nav className="nav-box navbar-box flex-row align-center justify-evenly">
                 <div className="nav-section title-section flex-row align-center justify-evenly">
-                    <button className="hamburger display-none btn-border-none bg-transparent">
-                        <GiHamburgerMenu className="icon-vr-align"/>
-                    </button>
+                    <Button className="hamburger display-none btn-border-none bg-transparent" icon={<GiHamburgerMenu className="icon-vr-align"/>} />
                     <a href="#">
                         <div className="title font-weight-3">
                             nakshatra <span className="sub-title">CLiQ</span>
@@ -20,7 +19,7 @@ export const Navbar = () => {
                 
                 <div className="nav-section flex-row align-center justify-center">
                     <a href="#">
-                        <button className="btn btn-primary mr-1 md-screen-hidden">Login</button>
+                        <Button text="Login" className="btn btn-primary mr-1 md-screen-hidden" />
                     </a>
                   
                     <ul className="nav-link-items flex-row align-center justify-around">

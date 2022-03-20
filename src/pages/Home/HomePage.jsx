@@ -1,4 +1,5 @@
-import { BrandNameSection, CategorySection, Footer, HeroSection, InterestCategorySection, Navbar, NewCategorySection } from "./components"
+import { Navbar } from "../../Components/index"
+import { BrandNameSection, CategorySection, Footer, HeroSection, InterestCategorySection, NewCategorySection } from "./components"
 
 
 export const HomePage = () => {
