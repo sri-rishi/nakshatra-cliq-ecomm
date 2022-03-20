@@ -1,0 +1,24 @@
+.productList-temp {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    grid-template-areas: 
+        "navbar navbar navbar navbar"
+        "aside main main main";
+    grid-template-rows: 5rem 1fr;
+    grid-template-columns: 15rem 1fr;
+    gap: 2rem;
+}
+
+.pl-navbar {
+    grid-area: navbar;
+}
+
+@media only screen and (max-width: 49em) {
+    .productList-temp {
+        grid-template-areas: 
+            "navbar navbar"
+            "main main"
+        ;
+    }
+}
