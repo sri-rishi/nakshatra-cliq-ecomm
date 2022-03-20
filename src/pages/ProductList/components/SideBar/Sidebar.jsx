@@ -13,7 +13,7 @@ export const SideBar = () => {
                 <div className="flex-row align-center justify-between">
                     <span className="sub-filt-head font-weight-5">Price Range</span>
                 </div>
-                <input className="m-vl-1 filter-items" type="range" min="1" max="5" value="3" id="myRange" />
+                <input className="m-vl-1 filter-items" type="range" min="1" max="1000" value="1000" id="myRange" />
             </div>
             <div className="filter-sections m-hr-1 flex-column">
                 <div className="flex-row align-center justify-between">
