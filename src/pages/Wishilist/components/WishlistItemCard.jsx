@@ -1,3 +1,6 @@
+import { Button } from "../../../Components/index";
+import { FaShoppingCart } from "../../../assets/icons";
+
 export const WishlistitemCard = () => {
     return (
         <div className="card card-vl-full-img vl-card card-shadow">
@@ -13,14 +16,8 @@ export const WishlistitemCard = () => {
                     <span className="xsm-heading">&#8377; 52,200</span> <span className="text-striked">&#8377; 58,000</span>
                 </div>
                 <div className="card-vl-cta-section">
-                    <button className="btn btn-primary">
-                        <i className="fas fa-shopping-cart"></i>
-                        Move To Cart
-                    </button>
-                    <button className="btn btn-outline-primary">
-                        <i className="fas fa-shopping-cart"></i>
-                        Remove from Wishlist
-                    </button>
+                    <Button className="btn btn-primary" icon={<FaShoppingCart className="icon-vr-align"/>} text="Move To Cart" />
+                    <Button className="btn btn-outline-primary" text="Remove from Wishlist"/>
                 </div>
             </div>
         </div>
