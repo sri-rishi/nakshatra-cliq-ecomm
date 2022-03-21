@@ -15,8 +15,8 @@ export const VerticalCard = (props) => {
                     <p className="card-subtitle mt-8-px text-ellipsis-overflow">{description}</p>
                     <Button className="card-btn-transparent card-like-btn" icon={<AiFillHeart className="icon-vr-align"/>} />
                 </div>
-                <div className="card-desc">
-                    <span className="card-dis-price">&#8377; {price.discounted}</span> <span className="text-striked">&#8377; {price.original}</span> <span className="highlighted-orange">{price.discount}</span>
+                <div className="card-desc flex-row align-center gap-8-px">
+                    <span className="card-dis-price">&#8377; {price.discounted}</span> <span className="text-striked">&#8377; {price.original}</span> <span className="orange-text font-weight-6"> &#40; {price.discount}&#37; &#41;</span>
                 </div>
                 <div className="card-vl-cta-section align-center">
                     <Button className="btn btn-primary" icon={<FaShoppingCart className="icon-vr-align mr-1"/>} text="Add To Cart" />

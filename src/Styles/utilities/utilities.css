@@ -63,3 +63,11 @@
 .cursor-pointer:hover {
     cursor: pointer;
 }
+
+.orange-text {
+    color: var(--dark-yellow-color);
+}
+
+.gap-8-px {
+    gap: 8px;
+}
