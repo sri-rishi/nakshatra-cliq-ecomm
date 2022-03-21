@@ -5,6 +5,6 @@ export const getProductFromMockServer = async(setData) => {
         const response = await axios.get("/api/products");
         setData(response?.data?.products);
     }catch(e) {
-        console.log(e);
+        console.error(e);
     }
 }
