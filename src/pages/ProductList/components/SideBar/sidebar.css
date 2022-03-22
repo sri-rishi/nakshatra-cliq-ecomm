@@ -60,6 +60,17 @@
     vertical-align: middle;
 }
 
+.price-range-output {
+    font-size: 1.1rem;
+}
+
+.range-value {
+    background: var(--white-color);
+    padding: 4px 8px;
+    border-radius: 4px;
+    width: 5rem;
+}
+
 @media only screen and (max-width: 49em) {
     .aside-box {
         display: none;

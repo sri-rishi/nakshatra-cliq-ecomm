@@ -3,7 +3,17 @@ import { useFilteredData } from "../../../../Context/filterData.context"
 import { brandLogoData, typeCategorySectionItems, interestCoverData, ratingData, sortByPriceData } from "../../../../data"
 
 export const SideBar = () => {
-    const {sortBy, filterDispatch, filterByType, filterByBrand, filterByInterest, filterByRatings} = useFilteredData();
+    const {
+        sortBy, 
+        filterDispatch, 
+        filterByType, 
+        filterByBrand, 
+        filterByInterest, 
+        filterByRatings, 
+        priceRange, 
+        showFastDeliveryProducts,
+        showOutOfStockProducts
+    } = useFilteredData();
     return (
         <aside className="aside-box grid">
             <div className="filter-sections filter-head flex-row align-center justify-between">
@@ -14,7 +24,16 @@ export const SideBar = () => {
                 <div className="flex-row align-center justify-between">
                     <span className="sub-filt-head font-weight-5">Price Range</span>
                 </div>
-                <input className="m-vl-1 filter-items" type="range" min="1" max="1000" value="1000" id="myRange" />
+                <input 
+                    id="priceRange"
+                    className="m-vl-1 filter-items"
+                    type="range" 
+                    min="4000" 
+                    max="350000" 
+                    value={priceRange} 
+                    onChange={(e) => filterDispatch({type: "FILTER_BY_PRICE_RANGE", payload: e.target.value})}
+                />
+                <p className="flex-row align-center justify-between font-weight-5 mb-1 price-range-output"><span>Range:</span><span className="orange-text range-value flex-row justify-center align-center card-shadow">{priceRange}</span></p>
             </div>
             <div className="filter-sections m-hr-1 flex-column">
                 <div className="flex-row align-center justify-between">
@@ -26,12 +45,13 @@ export const SideBar = () => {
                             <li key={id} className="align-center">
                                 <label htmlFor={inputAttributeValue}>
                                     <input 
-                                    className="filter-inputs" 
-                                    type="radio" id={inputAttributeValue}
-                                    name="sort" 
-                                    aria-label={inputText} 
-                                    onChange={() => filterDispatch({type: "SORT", payload: inputPayload})} 
-                                    checked={sortBy && sortBy === inputPayload}/>
+                                        className="filter-inputs" 
+                                        type="radio" id={inputAttributeValue}
+                                        name="sort" 
+                                        aria-label={inputText} 
+                                        onChange={() => filterDispatch({type: "SORT", payload: inputPayload})} 
+                                        checked={sortBy && sortBy === inputPayload}
+                                    />
                                     {inputText}
                                 </label>
                             </li>
@@ -49,13 +69,13 @@ export const SideBar = () => {
                             <li key={id}>
                                 <label htmlFor={`${typeCategoryName}-camera`}>
                                     <input 
-                                    className="filter-inputs" 
-                                    id={`${typeCategoryName}-camera`} 
-                                    type="checkbox"
-                                    name={`${typeCategoryName}-camera`} 
-                                    aria-label={`${typeCategoryName} camera type checkbox`} 
-                                    onChange={() => (filterDispatch({type: "FILTER_BY_TYPE", payload: typeCategoryName}))}
-                                    checked={filterByType.includes(typeCategoryName)}
+                                        className="filter-inputs" 
+                                        id={`${typeCategoryName}-camera`} 
+                                        type="checkbox"
+                                        name={`${typeCategoryName}-camera`} 
+                                        aria-label={`${typeCategoryName} camera type checkbox`} 
+                                        onChange={() => (filterDispatch({type: "FILTER_BY_TYPE", payload: typeCategoryName}))}
+                                        checked={filterByType.includes(typeCategoryName)}
                                     />
                                     {typeCategoryName}
                                 </label>
@@ -74,13 +94,13 @@ export const SideBar = () => {
                             <li key={id}>
                                 <label htmlFor={`${brandName}-brand`}>
                                     <input 
-                                    className="filter-inputs" 
-                                    id={`${brandName}-brand`} 
-                                    type="checkbox" 
-                                    name={`${brandName}-brand`} 
-                                    aria-label={`${brandName} Camera Brand checkbox`} 
-                                    onChange={() => filterDispatch({type: "FILTER_BY_BRAND", payload: brandName})}
-                                    checked={filterByBrand.includes(brandName)}
+                                        className="filter-inputs" 
+                                        id={`${brandName}-brand`} 
+                                        type="checkbox" 
+                                        name={`${brandName}-brand`} 
+                                        aria-label={`${brandName} Camera Brand checkbox`} 
+                                        onChange={() => filterDispatch({type: "FILTER_BY_BRAND", payload: brandName})}
+                                        checked={filterByBrand.includes(brandName)}
                                     />
                                     {brandName}
                                 </label>
@@ -99,13 +119,13 @@ export const SideBar = () => {
                             <li key={id}>
                                 <label htmlFor={`${interestType}-interest`}>
                                     <input 
-                                    className="filter-inputs" 
-                                    id={`${interestType}-interest`} 
-                                    type="checkbox" 
-                                    name={`${interestType}-interest`} 
-                                    aria-label={`${interestType} Camera checkbox`} 
-                                    onChange={() => filterDispatch({type: "FILTER_BY_INTEREST", payload: interestType})}
-                                    checked={filterByInterest.includes(interestType)}
+                                        className="filter-inputs" 
+                                        id={`${interestType}-interest`} 
+                                        type="checkbox" 
+                                        name={`${interestType}-interest`} 
+                                        aria-label={`${interestType} Camera checkbox`} 
+                                        onChange={() => filterDispatch({type: "FILTER_BY_INTEREST", payload: interestType})}
+                                        checked={filterByInterest.includes(interestType)}
                                     />
                                     {interestType}
                                 </label>
@@ -124,12 +144,12 @@ export const SideBar = () => {
                             <li key={id}>
                                 <label htmlFor={`${ratingValue}-ratings`}>
                                     <input 
-                                    className="filter-inputs" 
-                                    id={`${ratingValue}-ratings`} 
-                                    type="radio" name="rating" 
-                                    aria-label={`${inputValue} ratings checkbox`} 
-                                    onChange={() => filterDispatch({type: "FILTER_BY_RATINGS", payload: ratingValue})}
-                                    checked={filterByRatings === ratingValue}
+                                        className="filter-inputs" 
+                                        id={`${ratingValue}-ratings`} 
+                                        type="radio" name="rating" 
+                                        aria-label={`${inputValue} ratings checkbox`} 
+                                        onChange={() => filterDispatch({type: "FILTER_BY_RATINGS", payload: ratingValue})}
+                                        checked={filterByRatings === ratingValue}
                                     />
                                     {inputValue}
                                 </label>
@@ -146,25 +166,27 @@ export const SideBar = () => {
                     <li>
                         <label htmlFor="out-stock">
                             <input 
-                            className="filter-inputs" 
-                            id="out-stock" 
-                            type="checkbox"
-                             name="out-stock" 
-                             aria-label="Include Out of Stock"
-                             onChange={() => filterDispatch({type: "FAST_DELIVERY"})} 
-                             checked />
+                                className="filter-inputs" 
+                                id="out-stock" 
+                                type="checkbox"
+                                name="out-stock" 
+                                aria-label="Include Out of Stock"
+                                onChange={() => filterDispatch({type: "FAST_DELIVERY"})} 
+                                checked={showFastDeliveryProducts}
+                            />
                             Include Out of Stock
                         </label>
                     </li>
                     <li>
                         <label htmlFor="fast-delivery">
                             <input 
-                            className="filter-inputs" 
-                            id="fast-delivery" 
-                            type="checkbox" 
-                            name="fast-delivery" 
-                            aria-label="Fast Delivery" 
-                            onChange={() => filterDispatch({type: "INCLUDE_OUT_OF_STOCK"})} 
+                                className="filter-inputs" 
+                                id="fast-delivery" 
+                                type="checkbox" 
+                                name="fast-delivery" 
+                                aria-label="Fast Delivery" 
+                                onChange={() => filterDispatch({type: "INCLUDE_OUT_OF_STOCK"})} 
+                                checked={showOutOfStockProducts}
                             />
                             Fast Delivery
                         </label>
