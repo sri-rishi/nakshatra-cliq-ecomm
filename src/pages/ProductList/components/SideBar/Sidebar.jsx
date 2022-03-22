@@ -154,13 +154,27 @@ export const SideBar = () => {
                 <ul className="m-vl-1 filter-items">
                     <li>
                         <label htmlFor="out-stock">
-                            <input className="filter-inputs" id="out-stock" type="checkbox" name="out-stock" aria-label="Include Out of Stock" checked />
+                            <input 
+                            className="filter-inputs" 
+                            id="out-stock" 
+                            type="checkbox"
+                             name="out-stock" 
+                             aria-label="Include Out of Stock"
+                             onChange={() => filterDispatch({type: "FAST_DELIVERY"})} 
+                             checked />
                             Include Out of Stock
                         </label>
                     </li>
                     <li>
                         <label htmlFor="fast-delivery">
-                            <input className="filter-inputs" id="fast-delivery" type="checkbox" name="fast-delivery" aria-label="Fast Delivery" />
+                            <input 
+                            className="filter-inputs" 
+                            id="fast-delivery" 
+                            type="checkbox" 
+                            name="fast-delivery" 
+                            aria-label="Fast Delivery" 
+                            onChange={() => filterDispatch({type: "INCLUDE_OUT_OF_STOCK"})} 
+                            />
                             Fast Delivery
                         </label>
                     </li>

@@ -11,6 +11,8 @@ const FilterDataProvider = ({children}) => {
         filterByBrand: [],
         filterByInterest: [],
         filterByRatings: 1,
+        showFastDeliveryProducts: false,
+        showOutOfStockProducts: true
     });
 
     const getSortedProductList = (productList, sortBy) => {
@@ -49,18 +51,24 @@ const FilterDataProvider = ({children}) => {
         return productList;
     }
 
-    const getFilteredByRatingsData = (productList, filterByRatings) => productList.filter(product => product.ratings >= filterByRatings)
+    const getFilteredByRatingsData = (productList, filterByRatings) => productList.filter(product => product.ratings >= filterByRatings);
+
+    const getOutOfStockFilterData = (productList, showOutOfStockProducts) => showOutOfStockProducts ? productList : productList.filter(product => product.inStock)
+
+    const getFilterByFastDeliveryData = (productList, showFastDeliveryProducts) => showFastDeliveryProducts ? productList.filter( product => product.fastDelivery) : productList 
+
 
     const sortedProductList = getSortedProductList(productListData, state.sortBy);
     const filteredByTypeData = getFilteredByTypeData(sortedProductList, state.filterByType);
     const filteredByBrandData = getFilteredByBrandData(filteredByTypeData, state.filterByBrand);
     const filteredByInterestData = getFilteredByInterestData(filteredByBrandData, state.filterByInterest);
     const filteredByRatingsData = getFilteredByRatingsData(filteredByInterestData, state.filterByRatings);
-
+    const filteredByOutOfStockData = getOutOfStockFilterData(filteredByRatingsData, state.showOutOfStockProducts);
+    const filteredByFastDeliveryData = getFilterByFastDeliveryData(filteredByOutOfStockData, state.showFastDeliveryProducts);
     
     return (
         <FilterDataContext.Provider value={{
-            filteredByRatingsData,
+            filteredByFastDeliveryData,
             filterByType: state.filterByType,
             filterByBrand: state.filterByBrand,
             filterByInterest: state.filterByInterest,
@@ -125,7 +133,19 @@ const filterDataReducer = (state, action) => {
                 ...state,
                 filterByRatings: action.payload
             }
+
+        case "FAST_DELIVERY":
+            return {
+                ...state,
+                showFastDeliveryProducts: !state.showFastDeliveryProducts
+            }
         
+        case "INCLUDE_OUT_OF_STOCK":
+            return {
+                ...state,
+                showOutOfStockProducts: !state.showOutOfStockProducts
+            }
+
         default:
             return state;
     }
