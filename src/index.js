@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { makeServer } from "./server";
 import { DataProvider } from './Context/data.context';
+import { FilterDataProvider } from './Context/filterData.context';
 
 // Call make Server
 makeServer();
@@ -12,9 +13,11 @@ makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
-    <DataProvider>
-      <App />
-    </DataProvider>
+    <FilterDataProvider>
+      <DataProvider>
+        <App />
+      </DataProvider>
+    </FilterDataProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
