@@ -1,6 +1,6 @@
 import { Button } from "../../../../Components/index"
 import { useFilteredData } from "../../../../Context/filterData.context"
-import { brandLogoData, typeCategorySectionItems, interestCoverData, ratingData } from "../../../../data"
+import { brandLogoData, typeCategorySectionItems, interestCoverData, ratingData, sortByPriceData } from "../../../../data"
 
 export const SideBar = () => {
     const {sortBy, filterDispatch, filterByType, filterByBrand, filterByInterest, filterByRatings} = useFilteredData();
@@ -21,31 +21,22 @@ export const SideBar = () => {
                     <span className="sub-filt-head font-weight-5">Sort</span>
                 </div>
                 <ul className="m-vl-1 filter-items">
-                    <li className="align-center">
-                        <label htmlFor="price-l-to-h">
-                            <input 
-                            className="filter-inputs" 
-                            type="radio" id="price-l-to-h"
-                            name="sort" 
-                            aria-label="Price Low to High" 
-                            onChange={() => filterDispatch({type: "SORT", payload: "PRICE_LOW_TO_HIGH"})} 
-                            checked={sortBy && sortBy === "PRICE_LOW_TO_HIGH"}/>
-                            Price - Low to High
-                        </label>
-                    </li>
-                    <li>
-                        <label htmlFor="price-h-to-l">
-                            <input 
-                            className="filter-inputs" 
-                            id="price-h-to-l" 
-                            type="radio" 
-                            name="sort"  
-                            aria-label="Price High to Low"
-                            onChange={() => filterDispatch({type: "SORT", payload: "PRICE_HIGH_TO_LOW"})} 
-                            checked={sortBy && sortBy === "PRICE_HIGH_TO_LOW"}/>
-                            Price - High to Low
-                        </label>
-                    </li>
+                    {
+                        sortByPriceData.map(({id, inputText, inputPayload, inputAttributeValue}) => (
+                            <li key={id} className="align-center">
+                                <label htmlFor={inputAttributeValue}>
+                                    <input 
+                                    className="filter-inputs" 
+                                    type="radio" id={inputAttributeValue}
+                                    name="sort" 
+                                    aria-label={inputText} 
+                                    onChange={() => filterDispatch({type: "SORT", payload: inputPayload})} 
+                                    checked={sortBy && sortBy === inputPayload}/>
+                                    {inputText}
+                                </label>
+                            </li>
+                        ))
+                    }
                 </ul>
             </div>
             <div className="filter-sections m-hr-1 flex-column">
