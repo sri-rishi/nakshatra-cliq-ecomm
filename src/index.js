@@ -13,11 +13,11 @@ makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
-    <FilterDataProvider>
-      <DataProvider>
+    <DataProvider>
+      <FilterDataProvider>
         <App />
-      </DataProvider>
     </FilterDataProvider>
+    </DataProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

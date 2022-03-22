@@ -1,24 +1,24 @@
 import { bridgeCameraCoverImage, compactCameraCoverImage, dslrCoverImage, mirrorLessCoverImage } from "../assets/main-images";
 
-export const categorySectionItems = [
+export const typeCategorySectionItems = [
     {
         id: 1, 
-        categoryName: "DSLR",
+        typeCategoryName: "DSLR",
         imageSrc: dslrCoverImage
     },
     {
         id: 2,
-        categoryName: "Compact",
+        typeCategoryName: "Compact",
         imageSrc: compactCameraCoverImage
     },
     {
         id: 3,
-        categoryName: "Mirrorless",
+        typeCategoryName: "Mirrorless",
         imageSrc: mirrorLessCoverImage
     },
     {
         id: 4,
-        categoryName: "Bridge",
+        typeCategoryName: "Bridge",
         imageSrc: bridgeCameraCoverImage
     }
 ]
