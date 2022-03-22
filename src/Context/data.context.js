@@ -5,14 +5,14 @@ import { getProductFromMockServer } from "../data/sever-request";
 const DataContext = createContext();
 
 const DataProvider = ({children}) => {
-    const [data, setData] = useState([]);
+    const [productListData, setProductListData] = useState([]);
     useEffect(() => {
-        getProductFromMockServer(setData);
+        getProductFromMockServer(setProductListData);
     },  []);
 
-    console.log(data)
+    console.log(productListData);
     return (
-        <DataContext.Provider value={{data}}>
+        <DataContext.Provider value={{productListData}}>
             {children}
         </DataContext.Provider>
     )
