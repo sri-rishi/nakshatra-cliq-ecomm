@@ -1,8 +1,9 @@
-
 import { Button } from "../../../../Components/index"
-import { brandLogoData, categorySectionItems, interestCoverData, ratingData } from "../../../../data"
+import { useFilteredData } from "../../../../Context/filterData.context"
+import { brandLogoData, typeCategorySectionItems, interestCoverData, ratingData } from "../../../../data"
 
 export const SideBar = () => {
+    const {sortBy, filterDispatch, filterByType} = useFilteredData();
     return (
         <aside className="aside-box grid">
             <div className="filter-sections filter-head flex-row align-center justify-between">
@@ -22,13 +23,14 @@ export const SideBar = () => {
                 <ul className="m-vl-1 filter-items">
                     <li className="align-center">
                         <label htmlFor="price-l-to-h">
-                            <input className="filter-inputs" type="radio" id="price-l-to-h" name="sort" aria-label="Price Low to High" />
+                            <input className="filter-inputs" type="radio" id="price-l-to-h" name="sort" aria-label="Price Low to High" onChange={() => filterDispatch({type: "SORT", payload: "PRICE_LOW_TO_HIGH"})} checked={sortBy === "PRICE_LOW_TO_HIGH"}/>
                             Price - Low to High
                         </label>
                     </li>
                     <li>
                         <label htmlFor="price-h-to-l">
-                            <input className="filter-inputs" id="price-h-to-l" type="radio" name="sort"  aria-label="Price High to Low" />
+                            <input className="filter-inputs" id="price-h-to-l" type="radio" name="sort"  aria-label="Price High to Low"
+                            onChange={() => filterDispatch({type: "SORT", payload: "PRICE_HIGH_TO_LOW"})} checked={sortBy === "PRICE_HIGH_TO_LOW"}/>
                             Price - High to Low
                         </label>
                     </li>
@@ -40,12 +42,19 @@ export const SideBar = () => {
                 </div>
                 <ul className="m-vl-1 filter-items">
                     {
-                        categorySectionItems.map(({id, categoryName}) => (
+                        typeCategorySectionItems.map(({id, typeCategoryName}) => (
                             <li key={id}>
-                                <label htmlFor={`${categoryName}-camera`}>
-                                    <input className="filter-inputs" id={`${categoryName}-camera`} type="checkbox"
-                                    name={`${categoryName}-camera`} aria-label={`${categoryName} camera type checkbox`} />
-                                    {categoryName}
+                                <label htmlFor={`${typeCategoryName}-camera`}>
+                                    <input 
+                                    className="filter-inputs" 
+                                    id={`${typeCategoryName}-camera`} 
+                                    type="checkbox"
+                                    name={`${typeCategoryName}-camera`} 
+                                    aria-label={`${typeCategoryName} camera type checkbox`} 
+                                    onChange={() => (filterDispatch({type: "FILTER_BY_TYPE", payload: typeCategoryName}))}
+                                    checked={filterByType.includes(typeCategoryName)}
+                                    />
+                                    {typeCategoryName}
                                 </label>
                             </li>
                         ))
