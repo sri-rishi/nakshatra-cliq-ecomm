@@ -9,7 +9,8 @@ const FilterDataProvider = ({children}) => {
         sortBy: null,
         filterByType: [],
         filterByBrand: [],
-        filterByInterest: []
+        filterByInterest: [],
+        filterByRatings: 1,
     });
 
     const getSortedProductList = (productList, sortBy) => {
@@ -48,17 +49,22 @@ const FilterDataProvider = ({children}) => {
         return productList;
     }
 
+    const getFilteredByRatingsData = (productList, filterByRatings) => productList.filter(product => product.ratings >= filterByRatings)
+
     const sortedProductList = getSortedProductList(productListData, state.sortBy);
     const filteredByTypeData = getFilteredByTypeData(sortedProductList, state.filterByType);
     const filteredByBrandData = getFilteredByBrandData(filteredByTypeData, state.filterByBrand);
     const filteredByInterestData = getFilteredByInterestData(filteredByBrandData, state.filterByInterest);
+    const filteredByRatingsData = getFilteredByRatingsData(filteredByInterestData, state.filterByRatings);
 
+    
     return (
         <FilterDataContext.Provider value={{
-            filteredByInterestData,
+            filteredByRatingsData,
             filterByType: state.filterByType,
             filterByBrand: state.filterByBrand,
             filterByInterest: state.filterByInterest,
+            filterByRatings: state.filterByRatings,
             sortBy: state.sortBy, 
             filterDispatch: dispatch}}>
             {children}
@@ -113,6 +119,14 @@ const filterDataReducer = (state, action) => {
                 ...state,
                 filterByInterest: state.filterByInterest.concat(action.payload)
             }
-            
+
+        case "FILTER_BY_RATINGS":
+            return {
+                ...state,
+                filterByRatings: action.payload
+            }
+        
+        default:
+            return state;
     }
 }

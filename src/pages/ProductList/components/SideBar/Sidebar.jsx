@@ -3,7 +3,7 @@ import { useFilteredData } from "../../../../Context/filterData.context"
 import { brandLogoData, typeCategorySectionItems, interestCoverData, ratingData } from "../../../../data"
 
 export const SideBar = () => {
-    const {sortBy, filterDispatch, filterByType, filterByBrand, filterByInterest} = useFilteredData();
+    const {sortBy, filterDispatch, filterByType, filterByBrand, filterByInterest, filterByRatings} = useFilteredData();
     return (
         <aside className="aside-box grid">
             <div className="filter-sections filter-head flex-row align-center justify-between">
@@ -29,7 +29,7 @@ export const SideBar = () => {
                             name="sort" 
                             aria-label="Price Low to High" 
                             onChange={() => filterDispatch({type: "SORT", payload: "PRICE_LOW_TO_HIGH"})} 
-                            checked={sortBy === "PRICE_LOW_TO_HIGH"}/>
+                            checked={sortBy && sortBy === "PRICE_LOW_TO_HIGH"}/>
                             Price - Low to High
                         </label>
                     </li>
@@ -42,7 +42,7 @@ export const SideBar = () => {
                             name="sort"  
                             aria-label="Price High to Low"
                             onChange={() => filterDispatch({type: "SORT", payload: "PRICE_HIGH_TO_LOW"})} 
-                            checked={sortBy === "PRICE_HIGH_TO_LOW"}/>
+                            checked={sortBy && sortBy === "PRICE_HIGH_TO_LOW"}/>
                             Price - High to Low
                         </label>
                     </li>
@@ -131,8 +131,15 @@ export const SideBar = () => {
                     {
                         ratingData.map(({id, inputValue, ratingValue}) => (
                             <li key={id}>
-                                <label htmlFor={`${ratingValue}-interest`}>
-                                    <input className="filter-inputs" id={`${ratingValue}-interest`} type="checkbox" name={`${ratingValue}-rating`} aria-label={`${ratingValue} ratings checkbox`} />
+                                <label htmlFor={`${ratingValue}-ratings`}>
+                                    <input 
+                                    className="filter-inputs" 
+                                    id={`${ratingValue}-ratings`} 
+                                    type="radio" name="rating" 
+                                    aria-label={`${inputValue} ratings checkbox`} 
+                                    onChange={() => filterDispatch({type: "FILTER_BY_RATINGS", payload: ratingValue})}
+                                    checked={filterByRatings === ratingValue}
+                                    />
                                     {inputValue}
                                 </label>
                             </li>
