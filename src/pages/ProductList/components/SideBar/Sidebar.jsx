@@ -3,7 +3,7 @@ import { useFilteredData } from "../../../../Context/filterData.context"
 import { brandLogoData, typeCategorySectionItems, interestCoverData, ratingData } from "../../../../data"
 
 export const SideBar = () => {
-    const {sortBy, filterDispatch, filterByType} = useFilteredData();
+    const {sortBy, filterDispatch, filterByType, filterByBrand} = useFilteredData();
     return (
         <aside className="aside-box grid">
             <div className="filter-sections filter-head flex-row align-center justify-between">
@@ -23,14 +23,26 @@ export const SideBar = () => {
                 <ul className="m-vl-1 filter-items">
                     <li className="align-center">
                         <label htmlFor="price-l-to-h">
-                            <input className="filter-inputs" type="radio" id="price-l-to-h" name="sort" aria-label="Price Low to High" onChange={() => filterDispatch({type: "SORT", payload: "PRICE_LOW_TO_HIGH"})} checked={sortBy === "PRICE_LOW_TO_HIGH"}/>
+                            <input 
+                            className="filter-inputs" 
+                            type="radio" id="price-l-to-h"
+                            name="sort" 
+                            aria-label="Price Low to High" 
+                            onChange={() => filterDispatch({type: "SORT", payload: "PRICE_LOW_TO_HIGH"})} 
+                            checked={sortBy === "PRICE_LOW_TO_HIGH"}/>
                             Price - Low to High
                         </label>
                     </li>
                     <li>
                         <label htmlFor="price-h-to-l">
-                            <input className="filter-inputs" id="price-h-to-l" type="radio" name="sort"  aria-label="Price High to Low"
-                            onChange={() => filterDispatch({type: "SORT", payload: "PRICE_HIGH_TO_LOW"})} checked={sortBy === "PRICE_HIGH_TO_LOW"}/>
+                            <input 
+                            className="filter-inputs" 
+                            id="price-h-to-l" 
+                            type="radio" 
+                            name="sort"  
+                            aria-label="Price High to Low"
+                            onChange={() => filterDispatch({type: "SORT", payload: "PRICE_HIGH_TO_LOW"})} 
+                            checked={sortBy === "PRICE_HIGH_TO_LOW"}/>
                             Price - High to Low
                         </label>
                     </li>
@@ -70,7 +82,15 @@ export const SideBar = () => {
                         brandLogoData.map(({id, brandName}) => (
                             <li key={id}>
                                 <label htmlFor={`${brandName}-brand`}>
-                                    <input className="filter-inputs" id={`${brandName}-brand`} type="checkbox" name={`${brandName}-brand`} aria-label={`${brandName} Camera Brand checkbox`} />
+                                    <input 
+                                    className="filter-inputs" 
+                                    id={`${brandName}-brand`} 
+                                    type="checkbox" 
+                                    name={`${brandName}-brand`} 
+                                    aria-label={`${brandName} Camera Brand checkbox`} 
+                                    onChange={() => filterDispatch({type: "FILTER_BY_BRAND", payload: brandName})}
+                                    checked={filterByBrand.includes(brandName)}
+                                    />
                                     {brandName}
                                 </label>
                             </li>
@@ -87,7 +107,13 @@ export const SideBar = () => {
                         interestCoverData.map(({id, interestType}) => (
                             <li key={id}>
                                 <label htmlFor={`${interestType}-interest`}>
-                                    <input className="filter-inputs" id={`${interestType}-interest`} type="checkbox" name={`${interestType}-interest`} aria-label={`${interestType} Camera checkbox`} />
+                                    <input 
+                                    className="filter-inputs" 
+                                    id={`${interestType}-interest`} 
+                                    type="checkbox" 
+                                    name={`${interestType}-interest`} 
+                                    aria-label={`${interestType} Camera checkbox`} 
+                                    />
                                     {interestType}
                                 </label>
                             </li>

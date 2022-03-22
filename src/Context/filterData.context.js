@@ -7,7 +7,8 @@ const FilterDataProvider = ({children}) => {
     const {productListData} = useData();
     const [state, dispatch] = useReducer(filterDataReducer, {
         sortBy: null,
-        filterByType: []
+        filterByType: [],
+        filterByBrand: [],
     });
 
     const getSortedProductList = (productList, sortBy) => {
@@ -31,11 +32,26 @@ const FilterDataProvider = ({children}) => {
         return productList;
     }
 
+    const getFilteredByBrandData = (productList, filterByBrand) => {
+        if(filterByBrand.length > 0) {
+            return productList.filter(product => filterByBrand.includes(product.brandName));
+        }
+        return productList;
+    }
+
     const sortedProductList = getSortedProductList(productListData, state.sortBy);
     const filteredByTypeData = getFilterdByTypeData(sortedProductList, state.filterByType);
+    const filteredByBrandData = getFilteredByBrandData(filteredByTypeData, state.filterByBrand);
+
+    console.log(filteredByBrandData);
 
     return (
-        <FilterDataContext.Provider value={{filteredByTypeData,filterByType: state.filterByType, sortBy: state.sortBy, filterDispatch: dispatch}}>
+        <FilterDataContext.Provider value={{
+            filteredByBrandData,
+            filterByType: state.filterByType,
+            filterByBrand: state.filterByBrand,
+            sortBy: state.sortBy, 
+            filterDispatch: dispatch}}>
             {children}
         </FilterDataContext.Provider>
     )
@@ -63,6 +79,18 @@ const filterDataReducer = (state, action) => {
             {
                 ...state, 
                 filterByType: state.filterByType.concat(action.payload)
+            }
+
+        case "FILTER_BY_BRAND":
+            return state.filterByBrand.includes(action.payload) ?
+            {
+                ...state, 
+                filterByBrand: state.filterByBrand.filter(item => item !== action.payload)
+            }
+            :
+            {
+                ...state,
+                filterByBrand: state.filterByBrand.concat(action.payload)
             }
     }
 }
