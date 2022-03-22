@@ -15,7 +15,7 @@ export const products = [
     fastDelivery: true,
     newArrival: true,
     commingSoon: false,
-    interestCategory: ["wedding"],
+    interestCategory: ["Wedding"],
     price: {
         original: 105995,
         discounted: 103875,
@@ -33,7 +33,7 @@ export const products = [
     fastDelivery: true,
     newArrival: false,
     commingSoon: false,
-        interestCategory: ["wildlife"],
+        interestCategory: ["Wildlife"],
     price: {
         original: 59995,
         discounted: 58110,
@@ -51,7 +51,7 @@ export const products = [
     fastDelivery: false,
     newArrival: false,
     commingSoon: true,
-    interestCategory: ["wedding"],
+    interestCategory: ["Wedding"],
     price: {
         original: 64210,
         discounted: 66999,
@@ -69,7 +69,7 @@ export const products = [
     fastDelivery: false,
     newArrival: true,
     commingSoon: false,
-    interestCategory: ["travel"],
+    interestCategory: ["Travel"],
     price: {
         original: 321990,
         discounted: 310990,
@@ -87,7 +87,7 @@ export const products = [
     fastDelivery: false,
     newArrival: true,
     commingSoon: false,
-    interestCategory: ["wildlife"],
+    interestCategory: ["Wildlife"],
     price: {
         original: 271950,
         discounted: 264196,
@@ -105,7 +105,7 @@ export const products = [
     fastDelivery: false,
     newArrival: false,
     commingSoon: false,
-    interestCategory: ["travel"],
+    interestCategory: ["Travel"],
     price: {
         original: 98578,
         discounted: 96607,
@@ -123,7 +123,7 @@ export const products = [
     fastDelivery: true,
     newArrival: false,
     commingSoon: false,
-    interestCategory: ["instant"],
+    interestCategory: ["Instant"],
     price: {
         original: 5999,
         discounted: 5750,
@@ -141,7 +141,7 @@ export const products = [
     fastDelivery: true,
     newArrival: false,
     commingSoon: false,
-    interestCategory: ["wildlife", "travel"],
+    interestCategory: ["Wildlife", "Travel"],
     price: {
         original: 58084,
         discounted: 55761,
@@ -159,7 +159,7 @@ export const products = [
     fastDelivery: false,
     newArrival: false,
     commingSoon: true,
-    interestCategory: ["wildlife", "travel"],
+    interestCategory: ["Wildlife", "Travel"],
     price: {
         original: 122300,
         discounted: 114962,
@@ -177,7 +177,7 @@ export const products = [
     fastDelivery: false,
     newArrival: false,
     commingSoon: false,
-    interestCategory: ["wildlife", "travel"],
+    interestCategory: ["Wildlife", "Travel"],
     price: {
         original: 45195,
         discounted: 41367,
@@ -195,7 +195,7 @@ export const products = [
     fastDelivery: false,
     newArrival: false,
     commingSoon: true,
-    interestCategory: ["wildlife", "travel", "instant"],
+    interestCategory: ["Wildlife", "Travel", "Instant"],
     price: {
         original: 18399,
         discounted: 14999,
