@@ -9,7 +9,7 @@ export const products = [
   {
     _id: uuid(),
     brandName: "Nikon",
-    categoryName: ["MirrorLess", "DSLR"],
+    categoryName: ["Mirrorless", "DSLR"],
     imageSrc: "https://img.tatacliq.com/images/i6/437Wx649H/MP000000006499071_437Wx649H_20200210121319.jpeg",
     inStock: true,
     fastDelivery: true,
@@ -45,7 +45,7 @@ export const products = [
 {
     _id: uuid(),
     brandName: "Fujifilm",
-    categoryName: ["MirrorLess", "DSLR"],
+    categoryName: ["Mirrorless", "DSLR"],
     imageSrc: "https://img.tatacliq.com/images/i6/437Wx649H/MP000000006499071_437Wx649H_20200210121319.jpeg",
     inStock: true,
     fastDelivery: false,
@@ -63,11 +63,11 @@ export const products = [
 {
     _id: uuid(),
     brandName: "Sony",
-    categoryName: ["MirrorLess", "DSLR"],
+    categoryName: ["Mirrorless", "DSLR"],
     imageSrc: "https://img.tatacliq.com/images/i6/437Wx649H/MP000000006499071_437Wx649H_20200210121319.jpeg",
     inStock: false,
     fastDelivery: false,
-    newArrival: false,
+    newArrival: true,
     commingSoon: false,
     interestCategory: ["travel"],
     price: {
@@ -85,7 +85,7 @@ export const products = [
     imageSrc: "https://img.tatacliq.com/images/i6/437Wx649H/MP000000006499071_437Wx649H_20200210121319.jpeg",
     inStock: false,
     fastDelivery: false,
-    newArrival: false,
+    newArrival: true,
     commingSoon: false,
     interestCategory: ["wildlife"],
     price: {
@@ -99,7 +99,7 @@ export const products = [
 {
     _id: uuid(),
     brandName: "Sony",
-    categoryName:  ["compact"],
+    categoryName:  ["Compact"],
     imageSrc: "https://img.tatacliq.com/images/i6/437Wx649H/MP000000006499071_437Wx649H_20200210121319.jpeg",
     inStock: false,
     fastDelivery: false,
@@ -117,7 +117,7 @@ export const products = [
 {
     _id: uuid(),
     brandName: "Fujifilm",
-    categoryName:  ["compact"],
+    categoryName:  ["Compact"],
     imageSrc: "https://img.tatacliq.com/images/i6/437Wx649H/MP000000006499071_437Wx649H_20200210121319.jpeg",
     inStock: true,
     fastDelivery: true,
@@ -135,7 +135,7 @@ export const products = [
 {
     _id: uuid(),
     brandName: "Canon",
-    categoryName:  ["compact", "DSLR"],
+    categoryName:  ["Compact", "DSLR"],
     imageSrc: "https://img.tatacliq.com/images/i6/437Wx649H/MP000000006499071_437Wx649H_20200210121319.jpeg",
     inStock: true,
     fastDelivery: true,
@@ -153,7 +153,7 @@ export const products = [
 {
     _id: uuid(),
     brandName: "Sony",
-    categoryName:  ["compact", "DSLR", "br_idge"],
+    categoryName:  ["Compact", "DSLR", "Bridge"],
     imageSrc: "https://img.tatacliq.com/images/i6/437Wx649H/MP000000006499071_437Wx649H_20200210121319.jpeg",
     inStock: false,
     fastDelivery: false,
@@ -171,7 +171,7 @@ export const products = [
 {
     _id: uuid(),
     brandName: "Canon",
-    categoryName:  ["compact", "DSLR", "br_idge"],
+    categoryName:  ["Compact", "DSLR", "Bridge"],
     imageSrc: "https://img.tatacliq.com/images/i6/437Wx649H/MP000000006499071_437Wx649H_20200210121319.jpeg",
     inStock: false,
     fastDelivery: false,
@@ -189,12 +189,12 @@ export const products = [
 {
     _id: uuid(),
     brandName: "Canon",
-    categoryName:  ["compact"],
+    categoryName:  ["Compact"],
     imageSrc: "https://img.tatacliq.com/images/i6/437Wx649H/MP000000006499071_437Wx649H_20200210121319.jpeg",
     inStock: false,
     fastDelivery: false,
     newArrival: false,
-    commingSoon: false,
+    commingSoon: true,
     interestCategory: ["wildlife", "travel", "instant"],
     price: {
         original: 18399,
