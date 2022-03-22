@@ -188,7 +188,7 @@ export const products = [
 },
 {
     _id: uuid(),
-    brandName: "Canon",
+    brandName: "Fujifilm",
     categoryName:  ["Compact"],
     imageSrc: "https://img.tatacliq.com/images/i6/437Wx649H/MP000000006499071_437Wx649H_20200210121319.jpeg",
     inStock: false,
