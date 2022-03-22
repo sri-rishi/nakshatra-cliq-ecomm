@@ -9,6 +9,7 @@ const FilterDataProvider = ({children}) => {
         sortBy: null,
         filterByType: [],
         filterByBrand: [],
+        filterByInterest: []
     });
 
     const getSortedProductList = (productList, sortBy) => {
@@ -25,7 +26,7 @@ const FilterDataProvider = ({children}) => {
         }
     } 
 
-    const getFilterdByTypeData = (productList, filterByType) => {
+    const getFilteredByTypeData = (productList, filterByType) => {
         if(filterByType.length > 0) {
             return productList.filter(product => product.categoryName.some(el => filterByType.includes(el)));
         }
@@ -39,17 +40,25 @@ const FilterDataProvider = ({children}) => {
         return productList;
     }
 
-    const sortedProductList = getSortedProductList(productListData, state.sortBy);
-    const filteredByTypeData = getFilterdByTypeData(sortedProductList, state.filterByType);
-    const filteredByBrandData = getFilteredByBrandData(filteredByTypeData, state.filterByBrand);
+    const getFilteredByInterestData = (productList, filterByInterest) => {
+        if(filterByInterest.length > 0 ) {
+            return productList.filter(product => product.interestCategory.some(el => filterByInterest.includes(el)))
+        }
 
-    console.log(filteredByBrandData);
+        return productList;
+    }
+
+    const sortedProductList = getSortedProductList(productListData, state.sortBy);
+    const filteredByTypeData = getFilteredByTypeData(sortedProductList, state.filterByType);
+    const filteredByBrandData = getFilteredByBrandData(filteredByTypeData, state.filterByBrand);
+    const filteredByInterestData = getFilteredByInterestData(filteredByBrandData, state.filterByInterest);
 
     return (
         <FilterDataContext.Provider value={{
-            filteredByBrandData,
+            filteredByInterestData,
             filterByType: state.filterByType,
             filterByBrand: state.filterByBrand,
+            filterByInterest: state.filterByInterest,
             sortBy: state.sortBy, 
             filterDispatch: dispatch}}>
             {children}
@@ -92,5 +101,18 @@ const filterDataReducer = (state, action) => {
                 ...state,
                 filterByBrand: state.filterByBrand.concat(action.payload)
             }
+
+        case "FILTER_BY_INTEREST":
+            return state.filterByInterest.includes(action.payload) ?
+            {
+                ...state, 
+                filterByInterest: state.filterByInterest.filter(item => item !== action.payload)
+            }
+            :
+            {
+                ...state,
+                filterByInterest: state.filterByInterest.concat(action.payload)
+            }
+            
     }
 }

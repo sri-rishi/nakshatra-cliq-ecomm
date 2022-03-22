@@ -3,7 +3,7 @@ import { useFilteredData } from "../../../../Context/filterData.context"
 import { brandLogoData, typeCategorySectionItems, interestCoverData, ratingData } from "../../../../data"
 
 export const SideBar = () => {
-    const {sortBy, filterDispatch, filterByType, filterByBrand} = useFilteredData();
+    const {sortBy, filterDispatch, filterByType, filterByBrand, filterByInterest} = useFilteredData();
     return (
         <aside className="aside-box grid">
             <div className="filter-sections filter-head flex-row align-center justify-between">
@@ -113,6 +113,8 @@ export const SideBar = () => {
                                     type="checkbox" 
                                     name={`${interestType}-interest`} 
                                     aria-label={`${interestType} Camera checkbox`} 
+                                    onChange={() => filterDispatch({type: "FILTER_BY_INTEREST", payload: interestType})}
+                                    checked={filterByInterest.includes(interestType)}
                                     />
                                     {interestType}
                                 </label>
