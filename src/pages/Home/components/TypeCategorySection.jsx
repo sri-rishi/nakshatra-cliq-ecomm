@@ -1,11 +1,11 @@
 import { typeCategorySectionItems } from "../../../data"
 
-export const CategorySection = () => {
+export const TypeCategorySection = () => {
     
     return (
-        <div class="flex-column justify-center align-center gap-2">
-            <h3 class="md-heading">Shop By Category</h3>
-            <div class="category-item-box flex-row justify-center align-center">
+        <div className="flex-column justify-center align-center gap-2">
+            <h3 className="md-heading">Shop By Category</h3>
+            <div className="category-item-box flex-row justify-center align-center">
                 {
                     typeCategorySectionItems.map(({id, typeCategoryName, imageSrc}) => (
                         <a href="#" key={id}>
