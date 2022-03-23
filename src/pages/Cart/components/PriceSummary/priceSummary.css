@@ -1,0 +1,15 @@
+.border-bottom {
+    border-bottom: 2px solid var(--light-gray-color); 
+}
+ 
+.price-detail-section {
+     width: max-content;
+     height: min-content;
+     background: var(--white-color);
+     font-size: 1.1rem;
+     padding: 1rem;
+}
+ 
+.price-value{
+     padding-bottom: 1rem;
+}
