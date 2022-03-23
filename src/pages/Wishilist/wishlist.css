@@ -1,0 +1,21 @@
+.wish-like-btn {
+    color: var(--dark-red-color);
+}
+
+.wishlist-main-box {
+    margin: 10rem auto 2rem;
+}
+
+.wished-item-img {
+    border-radius: 4px 4px 0 0;
+    height: 18rem;
+}
+
+.card-vl-cta-section {
+    width: 100%;
+}
+
+
+.wish-head {
+    text-align: center;
+}
