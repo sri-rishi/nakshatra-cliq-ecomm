@@ -1,4 +1,4 @@
-import { categorySectionItems } from "../../../data"
+import { typeCategorySectionItems } from "../../../data"
 
 export const CategorySection = () => {
     
@@ -7,7 +7,7 @@ export const CategorySection = () => {
             <h3 class="md-heading">Shop By Category</h3>
             <div class="category-item-box flex-row justify-center align-center">
                 {
-                    categorySectionItems.map(({id, categoryName, imageSrc}) => (
+                    typeCategorySectionItems.map(({id, categoryName, imageSrc}) => (
                         <a href="#" key={id}>
                             <div className="category-items grid align-center justify-center">
                                 <img className="img-responsive category-images" src={imageSrc} alt={`${categoryName} Camera Category`} />
