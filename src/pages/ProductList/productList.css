@@ -6,7 +6,7 @@
         "navbar navbar navbar navbar"
         "aside main main main";
     grid-template-rows: 5rem 1fr;
-    grid-template-columns: 15rem 1fr;
+    grid-template-columns: 19rem 1fr;
     gap: 2rem;
 }
 

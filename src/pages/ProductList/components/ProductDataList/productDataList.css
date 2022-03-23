@@ -5,37 +5,6 @@
     row-gap: 4rem;
 }
 
-.card-vl-cta-section {
-    margin-top: 1rem;
-}
-
-.img-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-} 
-
-.text-ellipsis-overflow{
-    max-width: 16rem; 
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.cart-img {
-    height: 15rem;
-    border-radius: 4px 4px 0 0;
-}
-
-.product-card {
-    max-height: 25rem;
-}
-
-.card-dis-price {
-    font-size: 1.3rem;
-}
-
 @media only screen and (max-width: 77.5em) {
     .main-box {
         grid-template-columns: 1fr 1fr;

@@ -1,0 +1,57 @@
+.card-vl-cta-section {
+    margin-top: 1rem;
+}
+
+.img-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+} 
+
+.badge-square {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--dark-green-color);
+    font-size: 1rem;
+    padding:4px 8px;
+}
+
+.text-ellipsis-overflow{
+    max-width: 16rem; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.rating-box{
+    font-size: 1rem;
+    width: max-content;
+    padding: 4px 8px;
+    font-weight: 600;
+    background:var(--lighter-green-color);
+    border-radius: 4px;
+}
+
+.rating-value {
+    margin-top: 4px;
+}
+
+.star-img {
+    height: 20px;
+}
+
+.cart-img {
+    height: 15rem;
+    border-radius: 4px 4px 0 0;
+}
+
+.product-card {
+    max-height: 25rem;
+}
+
+.card-dis-price {
+    font-size: 1.3rem;
+}

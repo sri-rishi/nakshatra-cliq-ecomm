@@ -1,11 +1,12 @@
-import { VerticalCard } from "../../../../Components/VerticalCard/VerticalCard"
-import { productData } from "../../../../data/product.data"
+import { VerticalCard } from "../VerticalCard/VerticalCard"
+import { useFilteredData } from "../../../../Context/filterData.context"
 
 export const ProductDataList = () => {
+    const {filteredByFastDeliveryData} = useFilteredData();
     return (
-        <main className="main-box grid grid-3-column">
+        <main className="main-box flex-row align-center justify-evenly gap-1">
             {
-                productData.map((productItems) => (
+                filteredByFastDeliveryData.map((productItems) => (
                         <VerticalCard key={productItems._id} productItems={productItems}/>
                     ))
             }

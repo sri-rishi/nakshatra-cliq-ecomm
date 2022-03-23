@@ -3,10 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { makeServer } from "./server";
+import { DataProvider } from './Context/data.context';
+import { FilterDataProvider } from './Context/filterData.context';
+
+// Call make Server
+makeServer();
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <DataProvider>
+      <FilterDataProvider>
+        <App />
+    </FilterDataProvider>
+    </DataProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

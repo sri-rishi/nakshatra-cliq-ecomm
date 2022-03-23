@@ -1,5 +1,5 @@
-export const Button = (props) => {
+export const Button = ({onClick, type, text, className, disabled, icon}) => {
     return (
-        <button className={props.className}>{props.icon ? props.icon : "" }{props.text ? props.text : ""}</button>
+        <button onClick={onClick ?onClick : () => {}} type={type ? type : ""} className={className} disabled={disabled}>{icon ? icon : "" }{text ? text : ""}</button>
     )
 }
