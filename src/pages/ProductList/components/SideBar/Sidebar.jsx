@@ -24,16 +24,18 @@ export const SideBar = () => {
                 <div className="flex-row align-center justify-between">
                     <span className="sub-filt-head font-weight-5">Price Range</span>
                 </div>
-                <input 
-                    id="priceRange"
-                    className="m-vl-1 filter-items"
-                    type="range" 
-                    min="4000" 
-                    max="350000" 
-                    value={priceRange} 
-                    onChange={(e) => filterDispatch({type: "FILTER_BY_PRICE_RANGE", payload: e.target.value})}
-                />
-                <p className="flex-row align-center justify-between font-weight-5 mb-1 price-range-output"><span>Range:</span><span className="orange-text range-value flex-row justify-center align-center card-shadow">{priceRange}</span></p>
+                <div className="flex-row align-center justify-between font-weight-5 m-vl-1 price-range-output">
+                    <input 
+                        id="priceRange"
+                        className="filter-items"
+                        type="range" 
+                        min="4000" 
+                        max="350000" 
+                        value={priceRange} 
+                        onChange={(e) => filterDispatch({type: "FILTER_BY_PRICE_RANGE", payload: e.target.value})}
+                    />
+                    <span className="orange-text range-value flex-row justify-center align-center card-shadow">{priceRange}</span>
+                </div>
             </div>
             <div className="filter-sections m-hr-1 flex-column">
                 <div className="flex-row align-center justify-between">
@@ -171,8 +173,8 @@ export const SideBar = () => {
                                 type="checkbox"
                                 name="out-stock" 
                                 aria-label="Include Out of Stock"
-                                onChange={() => filterDispatch({type: "FAST_DELIVERY"})} 
-                                checked={showFastDeliveryProducts}
+                                onChange={() => filterDispatch({type: "INCLUDE_OUT_OF_STOCK"})} 
+                                checked={showOutOfStockProducts}
                             />
                             Include Out of Stock
                         </label>
@@ -185,8 +187,8 @@ export const SideBar = () => {
                                 type="checkbox" 
                                 name="fast-delivery" 
                                 aria-label="Fast Delivery" 
-                                onChange={() => filterDispatch({type: "INCLUDE_OUT_OF_STOCK"})} 
-                                checked={showOutOfStockProducts}
+                                onChange={() => filterDispatch({type: "FAST_DELIVERY"})} 
+                                checked={showFastDeliveryProducts}
                             />
                             Fast Delivery
                         </label>

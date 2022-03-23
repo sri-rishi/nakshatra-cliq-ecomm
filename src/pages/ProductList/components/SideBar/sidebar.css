@@ -3,7 +3,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: max-content;
+    width: 19rem;
     overflow: auto;
     padding: 2rem 1rem;
     background: var(--white-color);
