@@ -66,6 +66,19 @@ export const filterDataReducer = (state, action) => {
                 priceRange: action.payload
             }
 
+        case "CLEAR_ALL_FILTERS":
+            return {
+                ...state,
+                sortBy: null,
+                filterByType: [],
+                filterByBrand: [],
+                filterByInterest: [],
+                filterByRatings: 1,
+                showFastDeliveryProducts: false,
+                showOutOfStockProducts: true,
+                priceRange: 350000
+            }
+
         default:
             return state;
     }

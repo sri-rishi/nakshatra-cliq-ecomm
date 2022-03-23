@@ -18,7 +18,10 @@ export const SideBar = () => {
         <aside className="aside-box grid">
             <div className="filter-sections filter-head flex-row align-center justify-between">
                 <span className="xsm-heading font-weight-5">Filter</span>
-                <Button text="Clear All" className="btn-border-none bg-transparent filter-cta-btn font-weight-5" />
+                <Button 
+                text="Clear All" 
+                className="btn-border-none bg-transparent filter-cta-btn font-weight-5" 
+                onClick={() => filterDispatch({type: "CLEAR_ALL_FILTERS"})}/>
             </div>
             <div className="filter-sections m-hr-1 flex-column">
                 <div className="flex-row align-center justify-between">
