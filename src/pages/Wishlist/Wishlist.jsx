@@ -1,4 +1,4 @@
-import { Navbar } from "../../Components/index";
+import { Navbar } from "../../Components/index/index";
 import { WishlistitemCard } from "./components/WishlistItemCard";
 
 export const Wishlist = () => {
