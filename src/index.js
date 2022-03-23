@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router} from 'react-router-dom';
 import { makeServer } from "./server";
 import { DataProvider } from './Context/data.context';
 import { FilterDataProvider } from './Context/filterData.context';
@@ -13,11 +14,13 @@ makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
-    <DataProvider>
-      <FilterDataProvider>
-        <App />
-    </FilterDataProvider>
-    </DataProvider>
+    <Router>
+      <DataProvider>
+        <FilterDataProvider>
+          <App />
+        </FilterDataProvider>
+      </DataProvider>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
