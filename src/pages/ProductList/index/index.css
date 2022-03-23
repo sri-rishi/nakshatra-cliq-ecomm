@@ -1,3 +1,4 @@
 @import '../components/SideBar/sidebar.css';
+@import "../components/VerticalCard/verticalCard.css";
 @import "../components/ProductDataList/productDataList.css";
 @import "../productList.css";
