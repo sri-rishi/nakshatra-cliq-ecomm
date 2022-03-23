@@ -1,10 +1,13 @@
 import {createContext, useContext, useReducer} from "react";
 import { useData } from "./data.context";
+import { filterDataReducer } from "../Reducer";
+import { getFilterByPriceRangeData, getSortedProductList, getFilteredByTypeData, getFilteredByBrandData, getFilteredByInterestData, getFilteredByRatingsData, getOutOfStockFilterData, getFilterByFastDeliveryData } from "../Helper";
 
 const FilterDataContext = createContext();
 
 const FilterDataProvider = ({children}) => {
     const {productListData} = useData();
+
     const [state, dispatch] = useReducer(filterDataReducer, {
         sortBy: null,
         filterByType: [],
@@ -15,52 +18,6 @@ const FilterDataProvider = ({children}) => {
         showOutOfStockProducts: true,
         priceRange: 350000
     });
-
-    const getFilterByPriceRangeData = (productList, priceRange) => {
-        return productList.filter(product => product.price.discounted < priceRange);
-    }
-
-    const getSortedProductList = (productList, sortBy) => {
-        if (sortBy === null) {
-            return productList
-        }
-        
-        if (sortBy === "PRICE_LOW_TO_HIGH") {
-           return [...productList].sort((firstItem, secondItem) => firstItem.price.discounted - secondItem.price.discounted);
-        }
-
-        if(sortBy === "PRICE_HIGH_TO_LOW") {
-            return [...productList].sort((firstItem, secondItem) => secondItem.price.discounted - firstItem.price.discounted)
-        }
-    } 
-
-    const getFilteredByTypeData = (productList, filterByType) => {
-        if(filterByType.length > 0) {
-            return productList.filter(product => product.categoryName.some(el => filterByType.includes(el)));
-        }
-        return productList;
-    }
-
-    const getFilteredByBrandData = (productList, filterByBrand) => {
-        if(filterByBrand.length > 0) {
-            return productList.filter(product => filterByBrand.includes(product.brandName));
-        }
-        return productList;
-    }
-
-    const getFilteredByInterestData = (productList, filterByInterest) => {
-        if(filterByInterest.length > 0 ) {
-            return productList.filter(product => product.interestCategory.some(el => filterByInterest.includes(el)))
-        }
-
-        return productList;
-    }
-
-    const getFilteredByRatingsData = (productList, filterByRatings) => productList.filter(product => product.ratings >= filterByRatings);
-
-    const getOutOfStockFilterData = (productList, showOutOfStockProducts) => showOutOfStockProducts ? productList : productList.filter(product => product.inStock)
-
-    const getFilterByFastDeliveryData = (productList, showFastDeliveryProducts) => showFastDeliveryProducts ? productList.filter( product => product.fastDelivery) : productList 
 
     const filterByPriceRangeData = getFilterByPriceRangeData(productListData, state.priceRange);
     const sortedProductList = getSortedProductList(filterByPriceRangeData, state.sortBy);
@@ -92,75 +49,3 @@ const useFilteredData = () => useContext(FilterDataContext);
 
 export {useFilteredData, FilterDataProvider};
 
-const filterDataReducer = (state, action) => {
-    switch(action.type) {
-        case "SORT":
-            return {
-                ...state,
-                sortBy: action.payload
-            }
-
-        case "FILTER_BY_TYPE":
-            return state.filterByType.includes(action.payload) ? 
-            {
-                ...state,
-                filterByType: state.filterByType.filter(item => item !== action.payload)
-            }
-            :
-            {
-                ...state, 
-                filterByType: state.filterByType.concat(action.payload)
-            }
-
-        case "FILTER_BY_BRAND":
-            return state.filterByBrand.includes(action.payload) ?
-            {
-                ...state, 
-                filterByBrand: state.filterByBrand.filter(item => item !== action.payload)
-            }
-            :
-            {
-                ...state,
-                filterByBrand: state.filterByBrand.concat(action.payload)
-            }
-
-        case "FILTER_BY_INTEREST":
-            return state.filterByInterest.includes(action.payload) ?
-            {
-                ...state, 
-                filterByInterest: state.filterByInterest.filter(item => item !== action.payload)
-            }
-            :
-            {
-                ...state,
-                filterByInterest: state.filterByInterest.concat(action.payload)
-            }
-
-        case "FILTER_BY_RATINGS":
-            return {
-                ...state,
-                filterByRatings: action.payload
-            }
-
-        case "FAST_DELIVERY":
-            return {
-                ...state,
-                showFastDeliveryProducts: !state.showFastDeliveryProducts
-            }
-        
-        case "INCLUDE_OUT_OF_STOCK":
-            return {
-                ...state,
-                showOutOfStockProducts: !state.showOutOfStockProducts
-            }
-        
-        case "FILTER_BY_PRICE_RANGE":
-            return {
-                ...state,
-                priceRange: action.payload
-            }
-
-        default:
-            return state;
-    }
-}
