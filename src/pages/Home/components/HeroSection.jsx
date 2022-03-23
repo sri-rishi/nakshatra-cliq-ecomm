@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { heroCoverImage } from "../../../assets/main-images";
+import { Button } from "../../../Components/index";
 
 export const HeroSection = () => {
     return (
@@ -10,9 +12,9 @@ export const HeroSection = () => {
                 </div>
                 <div className="cover-text flex-column">
                     <p>Capture your precious moments with our best collections</p>
-                    <a href="#">
-                        <button className="btn shop-cta-btn btn-primary">Shop Now</button>
-                    </a>
+                    <Link to="/productlist">
+                        <Button className="btn shop-cta-btn btn-primary" text="Shop Now"/>
+                    </Link>
                 </div>
             </div>
         </div>
