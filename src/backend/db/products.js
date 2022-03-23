@@ -14,7 +14,7 @@ export const products = [
     inStock: true,
     fastDelivery: true,
     newArrival: true,
-    commingSoon: false,
+    comingSoon: false,
     interestCategory: ["Wedding"],
     price: {
         original: 105995,
@@ -32,7 +32,7 @@ export const products = [
     inStock: true,
     fastDelivery: true,
     newArrival: false,
-    commingSoon: false,
+    comingSoon: false,
         interestCategory: ["Wildlife"],
     price: {
         original: 59995,
@@ -47,10 +47,10 @@ export const products = [
     brandName: "Fujifilm",
     categoryName: ["Mirrorless", "DSLR"],
     imageSrc: "https://img.tatacliq.com/images/i6/437Wx649H/MP000000006499071_437Wx649H_20200210121319.jpeg",
-    inStock: true,
+    inStock: false,
     fastDelivery: false,
     newArrival: false,
-    commingSoon: true,
+    comingSoon: false,
     interestCategory: ["Wedding"],
     price: {
         original: 64210,
@@ -65,10 +65,10 @@ export const products = [
     brandName: "Sony",
     categoryName: ["Mirrorless", "DSLR"],
     imageSrc: "https://img.tatacliq.com/images/i6/437Wx649H/MP000000006499071_437Wx649H_20200210121319.jpeg",
-    inStock: false,
+    inStock: true,
     fastDelivery: true,
     newArrival: true,
-    commingSoon: false,
+    comingSoon: false,
     interestCategory: ["Travel"],
     price: {
         original: 321990,
@@ -83,10 +83,10 @@ export const products = [
         brandName: "Nikon",
     categoryName:  ["DSLR"],
     imageSrc: "https://img.tatacliq.com/images/i6/437Wx649H/MP000000006499071_437Wx649H_20200210121319.jpeg",
-    inStock: false,
+    inStock: true,
     fastDelivery: false,
     newArrival: true,
-    commingSoon: false,
+    comingSoon: false,
     interestCategory: ["Wildlife"],
     price: {
         original: 271950,
@@ -104,7 +104,7 @@ export const products = [
     inStock: true,
     fastDelivery: false,
     newArrival: false,
-    commingSoon: false,
+    comingSoon: false,
     interestCategory: ["Travel"],
     price: {
         original: 98578,
@@ -122,7 +122,7 @@ export const products = [
     inStock: false,
     fastDelivery: true,
     newArrival: false,
-    commingSoon: false,
+    comingSoon: false,
     interestCategory: ["Instant"],
     price: {
         original: 5999,
@@ -140,7 +140,7 @@ export const products = [
     inStock: true,
     fastDelivery: true,
     newArrival: false,
-    commingSoon: false,
+    comingSoon: false,
     interestCategory: ["Wildlife", "Travel"],
     price: {
         original: 58084,
@@ -158,7 +158,7 @@ export const products = [
     inStock: false,
     fastDelivery: false,
     newArrival: false,
-    commingSoon: true,
+    comingSoon: true,
     interestCategory: ["Wildlife", "Travel"],
     price: {
         original: 122300,
@@ -176,7 +176,7 @@ export const products = [
     inStock: true,
     fastDelivery: false,
     newArrival: false,
-    commingSoon: false,
+    comingSoon: false,
     interestCategory: ["Wildlife", "Travel"],
     price: {
         original: 45195,
@@ -194,7 +194,7 @@ export const products = [
     inStock: false,
     fastDelivery: false,
     newArrival: false,
-    commingSoon: true,
+    comingSoon: true,
     interestCategory: ["Wildlife", "Travel", "Instant"],
     price: {
         original: 18399,
