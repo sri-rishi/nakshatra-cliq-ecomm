@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import {FaUserCircle, AiFillHeart, FaShoppingCart, GiHamburgerMenu} from "../../assets/icons";
 import { Button } from "../index";
 import { SearchBar } from "./SearchBar";
@@ -8,11 +9,11 @@ export const Navbar = () => {
             <nav className="nav-box navbar-box flex-row align-center justify-evenly">
                 <div className="nav-section title-section flex-row align-center justify-evenly">
                     <Button className="hamburger display-none btn-border-none bg-transparent" icon={<GiHamburgerMenu className="icon-vr-align"/>} />
-                    <a href="#">
+                    <NavLink to="/">
                         <div className="title font-weight-3">
                             nakshatra <span className="sub-title">CLiQ</span>
                         </div>
-                    </a>
+                    </NavLink>
                 </div>
 
                 <SearchBar />
@@ -24,16 +25,16 @@ export const Navbar = () => {
                   
                     <ul className="nav-link-items flex-row align-center justify-around">
                         <li className="nav-items nav-cta-icon">
-                            <a href="#">
+                            <NavLink to="/wishlist">
                                 <AiFillHeart className="icon-vr-align nav-cta-icon"/>
                                 <span className="icon-badge number-sm-badge">9</span>
-                            </a>
+                            </NavLink>
                         </li>
                         <li className="nav-items nav-cta-icon">
-                            <a href="#">
+                            <NavLink to="/cart">
                                 <FaShoppingCart className="icon-vr-align nav-cta-icon"/>
                                 <span className="icon-badge number-sm-badge">9</span>
-                            </a>
+                            </NavLink>
                         </li>
                     </ul>
                 </div>         

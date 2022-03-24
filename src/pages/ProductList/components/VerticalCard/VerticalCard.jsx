@@ -26,7 +26,7 @@ export const VerticalCard = (props) => {
                     <Button className="btn btn-primary" icon={<FaShoppingCart className="icon-vr-align mr-1"/>} text="Add To Cart" disabled={!inStock} onClick={(e) => console.log(e.target.disabled)}/>
                 </div>
             </div>
-            {!inStock && <div class="card-overlay-div"><span class="overlay-text-box">{`${comingSoon ? "Coming soon" : "Out Of Stock"}`}</span></div>}
+            {!inStock && <div className="card-overlay-div"><span className="overlay-text-box">{`${comingSoon ? "Coming soon" : "Out Of Stock"}`}</span></div>}
         </div>
     )
 }

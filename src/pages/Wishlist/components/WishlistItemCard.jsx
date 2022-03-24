@@ -1,4 +1,4 @@
-import { Button } from "../../../Components/index";
+import { Button } from "../../../Components/index/index";
 import { FaShoppingCart } from "../../../assets/icons";
 
 export const WishlistitemCard = () => {

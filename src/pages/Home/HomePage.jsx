@@ -1,15 +1,15 @@
 import { Navbar } from "../../Components/index"
-import { BrandNameSection, CategorySection, Footer, HeroSection, InterestCategorySection, NewCategorySection } from "./components"
+import { BrandNameSection, TypeCategorySection, Footer, HeroSection, InterestCategorySection, NewCategorySection } from "./components"
 
 
 export const HomePage = () => {
     return (
         <div>
             <Navbar />
-            <main class="main-div flex-column justify-center">
+            <main className="main-div flex-column justify-center">
                 <HeroSection />
                 <NewCategorySection />
-                <CategorySection />
+                <TypeCategorySection />
                 <BrandNameSection />
                 <InterestCategorySection />
             </main>
