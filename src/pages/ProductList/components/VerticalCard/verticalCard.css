@@ -26,23 +26,6 @@
     text-overflow: ellipsis;
 }
 
-.rating-box{
-    font-size: 1rem;
-    width: max-content;
-    padding: 4px 8px;
-    font-weight: 600;
-    background:var(--lighter-green-color);
-    border-radius: 4px;
-}
-
-.rating-value {
-    margin-top: 4px;
-}
-
-.star-img {
-    height: 20px;
-}
-
 .cart-img {
     height: 15rem;
     border-radius: 4px 4px 0 0;
