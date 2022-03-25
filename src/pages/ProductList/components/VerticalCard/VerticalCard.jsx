@@ -8,7 +8,7 @@ export const VerticalCard = (props) => {
     return (
         <div className={`card card-vl-full-img vl-card card-shadow overlay-box`}>
             <Link to={`/productlist/${_id}`}>
-                <div className="img-vl-container img-box">
+                <div className="img-vl-container img-box cursor-pointer">
                     <img className="img-responsive cart-img" src={imageSrc} alt={`${brandName} Camera`} />
                     {newArrival &&<TextBadgeSquare className="badge-square" text="New"/>}
                 </div>
