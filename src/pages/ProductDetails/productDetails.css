@@ -1,9 +1,10 @@
 .productDetails-card {
     max-width: 52rem;
     width: 100%;
-    margin-top: 8rem ;
+    margin-top: 8rem;
     padding: 1rem;
     background: var(--white-color);
+    border-radius: 4px;
 }
 
 .green-sm-text {
@@ -13,6 +14,10 @@
 
 .productDetail-desc {
     font-size: 1.5rem;
+}
+
+.price-org {
+    font-size: 1.2rem;
 }
 
 .availabelity-div {
@@ -32,4 +37,18 @@
 
 .main-detail {
     border-bottom: 1px solid var(--light-gray-color);
+}
+
+@media only screen and (max-width: 43em) {
+    .productDetails-card {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        gap: 1rem;
+    }
+
+    .product-img {
+        width: 20rem; 
+        height:20rem;
+    }
 }

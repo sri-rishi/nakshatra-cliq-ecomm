@@ -13,8 +13,8 @@ export const ProductDetails = () => {
             <Navbar />
             <main className="flex-row align-center justify-center">
                 <div className="productDetails-card grid grid-equal card-shadow font-weight-4 ">
-                    <div className="img-container img-box">
-                        <img className="img-responsive" src={imageSrc} alt={`${brandName} Camera`} />
+                    <div className="img-container flex-row align-center justify-center">
+                        <img className="img-responsive product-img" src={imageSrc} alt={`${brandName} Camera`} />
                         {newArrival && <TextBadgeSquare className="badge-square detail-section-badge" text="New"/>}
                     </div>
                     <div className="flex-column m-hr-1 justify-center gap-2">
@@ -27,8 +27,8 @@ export const ProductDetails = () => {
                             <div className="flex-column justify-around gap-8-px">
                                 <p className="price-section flex-row align-center">
                                     <span className="card-dis-price">&#8377; {price.discounted}</span> 
-                                    <span className="text-striked">&#8377; {price.original}</span>
-                                    <span className="price-off text-sm-size">&#40; 10&#37; off &#41;</span>
+                                    <span className="text-striked price-org">&#8377; {price.original}</span>
+                                    <span className="price-off text-sm-size">&#40; {price.discount}&#37; off &#41;</span>
                                 </p>
                                 <p className="green-sm-text font-weight-6">inclusive of all taxes</p> 
                             </div>
