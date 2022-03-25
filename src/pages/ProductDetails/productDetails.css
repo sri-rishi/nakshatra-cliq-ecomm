@@ -1,0 +1,35 @@
+.productDetails-card {
+    max-width: 52rem;
+    width: 100%;
+    margin-top: 8rem ;
+    padding: 1rem;
+    background: var(--white-color);
+}
+
+.green-sm-text {
+    color: var(--dark-green-color);
+    font-size: 1.1rem;
+}
+
+.productDetail-desc {
+    font-size: 1.5rem;
+}
+
+.availabelity-div {
+    font-size: 1.1rem;
+    color: var(--gray-color);
+}
+
+.detail-section-badge {
+    top: 0;
+    left: 0;
+    padding: 4px 1rem;
+}
+
+.availabelity-icons {
+    color: var(--gray-color);
+}
+
+.main-detail {
+    border-bottom: 1px solid var(--light-gray-color);
+}
