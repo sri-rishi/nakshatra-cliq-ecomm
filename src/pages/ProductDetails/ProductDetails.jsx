@@ -13,7 +13,7 @@ export const ProductDetails = () => {
             <Navbar />
             <main className="flex-row align-center justify-center">
                 <div className="productDetails-card grid grid-equal card-shadow font-weight-4 ">
-                    <div className="img-container flex-row align-center justify-center">
+                    <div className="img-container img-box flex-row align-center justify-center">
                         <img className="img-responsive product-img" src={imageSrc} alt={`${brandName} Camera`} />
                         {newArrival && <TextBadgeSquare className="badge-square detail-section-badge" text="New"/>}
                     </div>
