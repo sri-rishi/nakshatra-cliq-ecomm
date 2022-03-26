@@ -1,18 +1,20 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { getProductFromMockServer } from "../data/sever-request";
+import { getProductFromServer, getTypeCategoriesFromServer } from "../data/sever-request";
 
 
 const DataContext = createContext();
 
 const DataProvider = ({children}) => {
     const [productListData, setProductListData] = useState([]);
+    const [typeCategoriesData, setTypeCategoriesData] = useState([]);
+    
     useEffect(() => {
-        getProductFromMockServer(setProductListData);
+        getProductFromServer(setProductListData);
+        getTypeCategoriesFromServer(setTypeCategoriesData);
     },  []);
 
-    console.log(productListData);
     return (
-        <DataContext.Provider value={{productListData}}>
+        <DataContext.Provider value={{productListData, typeCategoriesData}}>
             {children}
         </DataContext.Provider>
     )
