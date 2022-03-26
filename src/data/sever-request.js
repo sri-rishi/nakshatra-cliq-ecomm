@@ -19,4 +19,16 @@ const getTypeCategoriesFromServer = async(setTypeCategories) => {
     }
 }
 
-export {getProductFromServer, getTypeCategoriesFromServer}
+const getProductByIdfromServer = async(productId, setProduct, setLoading) => {
+    try {
+        const response = await axios.get(`/api/products/${productId}`);
+        if(response?.data?.product) {
+            setLoading(false);
+            setProduct(response.data.product);
+        }
+    }catch(e) {
+        console.error(e)
+    }
+}
+
+export {getProductFromServer, getTypeCategoriesFromServer, getProductByIdfromServer}
