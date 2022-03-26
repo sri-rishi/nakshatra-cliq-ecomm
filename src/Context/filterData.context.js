@@ -1,7 +1,7 @@
 import {createContext, useContext, useReducer} from "react";
 import { useData } from "./data.context";
 import { filterDataReducer } from "../Reducer";
-import { getFilterByPriceRangeData, getSortedProductList, getFilteredByTypeData, getFilteredByBrandData, getFilteredByInterestData, getFilteredByRatingsData, getOutOfStockFilterData, getFilterByFastDeliveryData } from "../Helper";
+import { getFilterByNewArrivalData, getFilterByPriceRangeData, getSortedProductList, getFilteredByTypeData, getFilteredByBrandData, getFilteredByInterestData, getFilteredByRatingsData, getOutOfStockFilterData, getFilterByFastDeliveryData } from "../Helper";
 
 const FilterDataContext = createContext();
 
@@ -9,6 +9,8 @@ const FilterDataProvider = ({children}) => {
     const {productListData} = useData();
 
     const [state, dispatch] = useReducer(filterDataReducer, {
+        categoryValue: null,
+        comingSoon: false,
         sortBy: null,
         filterByType: [],
         filterByBrand: [],
@@ -19,7 +21,8 @@ const FilterDataProvider = ({children}) => {
         priceRange: 350000
     });
 
-    const filterByPriceRangeData = getFilterByPriceRangeData(productListData, state.priceRange);
+    const filterByNewArrivalData = getFilterByNewArrivalData(productListData, state.categoryValue);
+    const filterByPriceRangeData = getFilterByPriceRangeData(filterByNewArrivalData, state.priceRange);
     const sortedProductList = getSortedProductList(filterByPriceRangeData, state.sortBy);
     const filteredByTypeData = getFilteredByTypeData(sortedProductList, state.filterByType);
     const filteredByBrandData = getFilteredByBrandData(filteredByTypeData, state.filterByBrand);
