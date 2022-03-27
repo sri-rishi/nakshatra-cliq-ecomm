@@ -78,6 +78,12 @@ export const filterDataReducer = (state, action) => {
                 showOutOfStockProducts: true,
                 priceRange: 350000
             }
+        
+        case "BY_NEW_CATEGORY":
+            return {
+                ...state,
+                categoryValue: action.payload
+            }
 
         default:
             return state;

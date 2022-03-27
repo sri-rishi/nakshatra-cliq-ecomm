@@ -1,3 +1,15 @@
+const getFilterByNewArrivalData = (productList, categoryValue) => {
+    if(categoryValue === "NEW_ARRIVALS") {
+        return productList.filter(product => product.newArrival)
+    }
+
+    if(categoryValue === "COMING_SOON") {
+        return productList.filter(product => product.comingSoon)
+    }
+    
+    return productList;
+}
+
 const getFilterByPriceRangeData = (productList, priceRange) => {
     return productList.filter(product => product.price.discounted < priceRange);
 }
@@ -44,4 +56,4 @@ const getOutOfStockFilterData = (productList, showOutOfStockProducts) => showOut
 
 const getFilterByFastDeliveryData = (productList, showFastDeliveryProducts) => showFastDeliveryProducts ? productList.filter( product => product.fastDelivery) : productList ;
 
-export {getFilterByPriceRangeData, getSortedProductList, getFilteredByTypeData, getFilteredByBrandData, getFilteredByInterestData, getFilteredByRatingsData, getOutOfStockFilterData, getFilterByFastDeliveryData }
+export {getFilterByNewArrivalData, getFilterByPriceRangeData, getSortedProductList, getFilteredByTypeData, getFilteredByBrandData, getFilteredByInterestData, getFilteredByRatingsData, getOutOfStockFilterData, getFilterByFastDeliveryData }
