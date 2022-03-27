@@ -1,5 +1,5 @@
 import { AiOutlineMinus, AiOutlinePlus} from "../../../../assets/icons"
-import { Button } from "../../../../Components/index"
+import { Button } from "../../../../Components/index";
 
 export const HorizontalCard = () => {
     return (
