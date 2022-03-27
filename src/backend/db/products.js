@@ -33,7 +33,7 @@ export const products = [
     fastDelivery: true,
     newArrival: false,
     comingSoon: false,
-        interestCategory: ["Wildlife"],
+    interestCategory: ["Wildlife"],
     price: {
         original: 59995,
         discounted: 58110,

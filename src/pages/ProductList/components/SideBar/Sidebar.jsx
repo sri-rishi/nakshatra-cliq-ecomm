@@ -1,8 +1,10 @@
 import { Button } from "../../../../Components/index"
+import { useData } from "../../../../Context/data.context"
 import { useFilteredData } from "../../../../Context/filterData.context"
 import { brandLogoData, typeCategorySectionItems, interestCoverData, ratingData, sortByPriceData } from "../../../../data"
 
 export const SideBar = () => {
+    const {typeCategoriesData} = useData();
     const {
         sortBy, 
         filterDispatch, 
@@ -70,19 +72,19 @@ export const SideBar = () => {
                 </div>
                 <ul className="m-vl-1 filter-items">
                     {
-                        typeCategorySectionItems.map(({id, typeCategoryName}) => (
+                        typeCategoriesData.map(({id, categoryName}) => (
                             <li key={id}>
-                                <label htmlFor={`${typeCategoryName}-camera`}>
+                                <label htmlFor={`${categoryName}-camera`}>
                                     <input 
                                         className="filter-inputs" 
-                                        id={`${typeCategoryName}-camera`} 
+                                        id={`${categoryName}-camera`} 
                                         type="checkbox"
-                                        name={`${typeCategoryName}-camera`} 
-                                        aria-label={`${typeCategoryName} camera type checkbox`} 
-                                        onChange={() => (filterDispatch({type: "FILTER_BY_TYPE", payload: typeCategoryName}))}
-                                        checked={filterByType.includes(typeCategoryName)}
+                                        name={`${categoryName}-camera`} 
+                                        aria-label={`${categoryName} camera type checkbox`} 
+                                        onChange={() => (filterDispatch({type: "FILTER_BY_TYPE", payload: categoryName}))}
+                                        checked={filterByType.includes(categoryName)}
                                     />
-                                    {typeCategoryName}
+                                    {categoryName}
                                 </label>
                             </li>
                         ))
