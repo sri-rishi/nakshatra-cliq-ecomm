@@ -40,7 +40,7 @@ export const SignUp = () => {
     };
     
     return (
-        <main className="flex-row align-center justify-center">
+        <main className="signUp-main flex-row align-center justify-center">
             <form className="form-box signUp-form">
                 <div className="form-head">
                     <h4 className="sm-heading">Sign Up</h4>
@@ -92,7 +92,7 @@ export const SignUp = () => {
                 
                 <label htmlFor="accept-all" aria-label="Accept condition checkbox">
                     <input 
-                    className="check-input" 
+                    className="check-input cursor-pointer" 
                     id="accept-all" 
                     name="accept-all" 
                     type="checkbox"
@@ -102,10 +102,15 @@ export const SignUp = () => {
                     I accept all terms and condition
                 </label>
                 
-                <Button className="form-cta btn btn-primary" onClick={(e) => signupHandler(e)} text="Sign Up"/>
+                <Button 
+                    className="form-cta btn btn-primary" 
+                    onClick={(e) => signupHandler(e)} 
+                    text="Sign Up" 
+                    disabled={!isUserAgree ? true: false}
+                />
                 
                 <Link to="/login">
-                    <Button className="form-cta btn btn-outline-secondary" text="Already have an account"/>
+                    <Button className="form-cta btn btn-outline-primary" text="Already have an account"/>
                 </Link>
 
             </form>

@@ -12,7 +12,6 @@ const getProductFromServer = async(setProductListData) => {
 const getTypeCategoriesFromServer = async(setTypeCategories) => {
     try {
         const response = await axios.get("/api/categories");
-        console.log(response?.data?.categories)
         setTypeCategories(response?.data?.categories);
     }catch(e) {
         console.error(e)

@@ -1,6 +1,6 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import { Cart, HomePage, MockAPI, ProductList, Wishlist, ProductDetails, PrivateRoute, SignUp, Login } from './pages/index';
+import { Cart, HomePage, MockAPI, ProductList, Wishlist, ProductDetails, PrivateRoute, SignUp, Login, UserProfile } from './pages/index';
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
         <Route path="/user" element={<PrivateRoute />}>
           <Route path="/user/cart" element={<Cart />} />
           <Route path="/user/wishlist" element={<Wishlist />} />
+          <Route path="/user/user-profile" element={<UserProfile />} />
         </Route>
       </Routes>
     </div>

@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 
 const AuthContext = createContext();
 
@@ -6,8 +6,7 @@ const AuthProvider = ({children}) => {
     const initialUserState = {
         user:{},
         isUserLoggedIn: false
-    }  
-    
+    } 
 
     const authReducer = (state, action) => {
         switch(action.type) {

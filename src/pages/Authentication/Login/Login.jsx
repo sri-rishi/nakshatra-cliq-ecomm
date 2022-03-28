@@ -7,19 +7,21 @@ import { Button } from "../../../Components/index";
 
 export const Login = () => {
     const {authDispatch, isUserLoggedIn, user} = useAuth();
+    const [userEmail, setUserEmail] = useState("");
+    const [userPassword, setUserPassword] = useState("");
     const [signInResponse, setSignInResponse] = useState();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const signinHandler = (e) => {
         e.preventDefault();
         loginHandler();
     }
 
-    const loginHandler = async (e) => {
+    const loginHandler = async () => {
         try {
           const response = await axios.post(`/api/auth/login`, {
-            email: "adarshbalika@neog.camp",
-            password: "adarshBalika",
+            email: userEmail,
+            password: userPassword,
           });
           setSignInResponse(response);
           if(response.status === 201) {
@@ -34,31 +36,45 @@ export const Login = () => {
       };
 
     return (
-        <main className="flex-row align-center justify-center">
+        <main className="login-main flex-row align-center justify-center">
             <form className="form-box login-form" action="#">
                 <div className="form-head">
                     <h4 className="sm-heading">Login</h4>
                 </div>
             
                 <label className="form-label" htmlFor="email" aria-label="Email">Email
-                    <input className="input std-input" type="email"  id="email" name="email" placeholder="Enter Your Email" />
+                    <input 
+                        className="input std-input" 
+                        type="email"  
+                        id="email" 
+                        name="email" 
+                        placeholder="Enter Your Email"
+                        value={userEmail} 
+                        onChange={(e) => setUserEmail(e.target.value)}
+                    />
                 </label>
             
                 <label className="form-label" htmlFor="password" aria-label="Password">Password
-                    <input className="input std-input" type="password" id="password" name="password" placeholder="Enter Your Password" />
+                    <input 
+                        className="input std-input" 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Enter Your Password" 
+                        value={userPassword}
+                        onChange={(e) => setUserPassword(e.target.value)}
+                    />
                 </label>
                 <div className="check-forgot-div">
-                    <label htmlFor="remember" aria-label="Remember Me checkbox">
-                        <input className="check-input" id="remember" name="remember" type="checkbox"/>
-                        Remember Me
-                    </label>
                     <p className="p-highlight login-p">Forgot Your Password</p>
                 </div>
             
                 <Button className="form-cta btn btn-primary" onClick={(e) => signinHandler(e)} text="Login"/>
+
+                <Button />
             
                 <Link to="/signup">
-                    <Button className="form-cta btn btn-outline-secondary" text="Create New Account" />
+                    <Button className="form-cta btn btn-outline-primary" text="Create New Account" />
                 </Link>
             </form>
         </main>
