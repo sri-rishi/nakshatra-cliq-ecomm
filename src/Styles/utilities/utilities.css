@@ -81,6 +81,10 @@
     color: var(--dark-yellow-color);
 }
 
+.primary-color-text {
+    color: var(--primary-dark-color);
+}
+
 .gap-8-px {
     gap: 8px;
 }

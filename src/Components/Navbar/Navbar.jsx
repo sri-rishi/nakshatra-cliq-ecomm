@@ -22,9 +22,9 @@ export const Navbar = () => {
                 
                 <div className="nav-section flex-row align-center justify-center">
                     {
-                        isUserLoggedIn ? user.firstName : <NavLink to="/login">
-                        <Button text="Login" className="btn btn-primary mr-1 md-screen-hidden" />
-                    </NavLink>
+                         <NavLink to="/user/user-profile">
+                            <Button text={isUserLoggedIn ? user.firstName : "Login"} className={`btn ${isUserLoggedIn ? "card-shadow primary-color-text font-weight-5" : "btn-primary"} mr-1 md-screen-hidden`} />
+                        </NavLink>
                     }
                   
                     <ul className="nav-link-items flex-row align-center justify-around">

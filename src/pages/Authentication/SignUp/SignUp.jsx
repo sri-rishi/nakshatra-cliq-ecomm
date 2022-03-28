@@ -97,7 +97,7 @@ export const SignUp = () => {
                     name="accept-all" 
                     type="checkbox"
                     checked={isUserAgree}
-                    onChange={() => setIsUserAgree(true)}
+                    onChange={() => setIsUserAgree(!isUserAgree)}
                     />
                     I accept all terms and condition
                 </label>
