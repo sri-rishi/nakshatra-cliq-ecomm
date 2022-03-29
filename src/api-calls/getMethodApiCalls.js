@@ -30,5 +30,16 @@ const getProductByIdfromServer = async(productId, setProduct, setLoading) => {
     }
 }
 
+const getCartItemsFromServer = async(cartDispatch) => {
+    const token = localStorage.getItem("token"); 
+    try {
+        const response = await axios.get("/api/user/cart" , {headers:{authorization: token}})
+        if(response.status === 200 || response.status === 201) {
+            cartDispatch({type: "SET_CART", payload: response.data.cart})
+        }
+    }catch(error) {
+        console.error(error)
+    }
+}
 
-export {getProductByIdfromServer, getTypeCategoriesFromServer, getProductFromServer}
+export {getProductByIdfromServer, getTypeCategoriesFromServer, getProductFromServer, getCartItemsFromServer}
