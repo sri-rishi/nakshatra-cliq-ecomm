@@ -3,28 +3,19 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {FaShippingFast,MdEventAvailable, FaShoppingCart, AiFillHeart, MdEventBusy} from "../../assets/icons";
 import { Button, Navbar, Ratings, TextBadgeSquare } from "../../Components/index";
-import { getProductByIdfromServer } from "../../api-calls";
+import { getProductByIdfromServer, postCartItems } from "../../api-calls";
 
 export const ProductDetails = () => {
     const [product, setProduct] = useState();
     const [loading, setLoading] = useState(true);
     const {productId} = useParams();
-    const [cartItems, setCartItems] = useState([]);
 
     useEffect(() => {
         getProductByIdfromServer(productId, setProduct, setLoading);
     }, [productId])
 
-    const addToCart = async(product) => {
-        const token = localStorage.getItem("token"); 
-        try {
-            const response = await axios.post("/api/user/cart", {product}, {headers:{authorization: token}});
-            if(response.status === 201) {
-                console.log(response);
-            }
-        } catch(error) {
-            console.error(error);
-        } 
+    const addToCart = (product) => {
+        postCartItems(product)
     }
 
     if(loading) {
