@@ -1,40 +1,22 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState} from "react";
 import axios from "axios";
 import { useAuth } from "../../../Context/auth.context";
 import { Button } from "../../../Components/index";
+import { loginHandler } from "../../../data/sever-request";
 
 
 export const Login = () => {
-    const {authDispatch, isUserLoggedIn, user} = useAuth();
+    const {authDispatch} = useAuth();
     const [userEmail, setUserEmail] = useState("");
     const [userPassword, setUserPassword] = useState("");
-    const [signInResponse, setSignInResponse] = useState();
     const navigate = useNavigate();
 
     const signinHandler = (e) => {
         e.preventDefault();
-        loginHandler();
+        loginHandler(userEmail, userPassword, authDispatch, navigate);
     }
-
-    const loginHandler = async () => {
-        try {
-          const response = await axios.post(`/api/auth/login`, {
-            email: userEmail,
-            password: userPassword,
-          });
-          setSignInResponse(response);
-          if(response.status === 201) {
-              authDispatch({type: "LOGIN", payload: response.data.foundUser})
-          }
-          localStorage.setItem("token", response.data.encodedToken);
-        } catch (error) {
-            console.log("Idhar se aa rha");
-          console.error(error);
-        }
-        navigate("/");
-      };
-
+    
     return (
         <main className="login-main flex-row align-center justify-center">
             <form className="form-box login-form" action="#">
@@ -51,6 +33,7 @@ export const Login = () => {
                         placeholder="Enter Your Email"
                         value={userEmail} 
                         onChange={(e) => setUserEmail(e.target.value)}
+                        required
                     />
                 </label>
             
@@ -63,6 +46,7 @@ export const Login = () => {
                         placeholder="Enter Your Password" 
                         value={userPassword}
                         onChange={(e) => setUserPassword(e.target.value)}
+                        required
                     />
                 </label>
                 <div className="check-forgot-div">
@@ -70,8 +54,6 @@ export const Login = () => {
                 </div>
             
                 <Button className="form-cta btn btn-primary" onClick={(e) => signinHandler(e)} text="Login"/>
-
-                <Button />
             
                 <Link to="/signup">
                     <Button className="form-cta btn btn-outline-primary" text="Create New Account" />

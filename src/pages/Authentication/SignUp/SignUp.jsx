@@ -2,43 +2,25 @@ import axios from "axios";
 import { useState } from "react";
 import { useAuth } from "../../../Context/auth.context";
 import { Button } from "../../../Components/index";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { signInHandler } from "../../../data/sever-request";
 
 export const SignUp = () => {
+    const [isUserAgree, setIsUserAgree] = useState(false);
+    const {authDispatch} = useAuth();
+    const navigate = useNavigate();
     const [userDetails, setUserDetails] = useState({
         firstName: "",
         lastName: "",
         email: "",
         password: "",
     });
-    const [isUserAgree, setIsUserAgree] = useState(false);
-    const {authDispatch, isUserLoggedIn, user} = useAuth();
-    const navigate = useNavigate();
 
     const signupHandler =(e) => {
         e.preventDefault()
-        loginHandler()
+        signInHandler(userDetails, authDispatch, navigate);
     }
 
-    const loginHandler = async () => {
-        try {
-          const response = await axios.post(`/api/auth/signup`, {
-            firstName: userDetails.firstName,
-            lastName: userDetails.lastName,
-            email: userDetails.email,
-            password: userDetails.password,
-          });
-        
-          if(response.status === 201) {
-              authDispatch({type: "LOGIN", payload: response.data.createdUser})
-          }
-          localStorage.setItem("token", response.data.encodedToken);
-        } catch (error) {
-          console.error(error);
-        }
-        navigate("/")
-    };
-    
     return (
         <main className="signUp-main flex-row align-center justify-center">
             <form className="form-box signUp-form">

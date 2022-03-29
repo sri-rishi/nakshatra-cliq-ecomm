@@ -3,18 +3,29 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {FaShippingFast,MdEventAvailable, FaShoppingCart, AiFillHeart, MdEventBusy} from "../../assets/icons";
 import { Button, Navbar, Ratings, TextBadgeSquare } from "../../Components/index";
-import { useFilteredData } from "../../Context/filterData.context"
 import { getProductByIdfromServer } from "../../data/sever-request";
 
 export const ProductDetails = () => {
     const [product, setProduct] = useState();
     const [loading, setLoading] = useState(true);
     const {productId} = useParams();
+    const [cartItems, setCartItems] = useState([]);
 
     useEffect(() => {
         getProductByIdfromServer(productId, setProduct, setLoading);
     }, [productId])
 
+    const addToCart = async(product) => {
+        const token = localStorage.getItem("token"); 
+        try {
+            const response = await axios.post("/api/user/cart", {product}, {headers:{authorization: token}});
+            if(response.status === 201) {
+                console.log(response);
+            }
+        } catch(error) {
+            console.error(error);
+        } 
+    }
 
     if(loading) {
         return <div>Loading....</div>
@@ -57,7 +68,13 @@ export const ProductDetails = () => {
                         </div>
                         <div className="flex-row justify-around">
                             {
-                                <Button className={`btn ${ product?.inStock ? `btn-primary` : `btn-outline-primary`}`} icon={product?.inStock && <FaShoppingCart className="icon-vr-align mr-8-px"/>} text={product?.inStock ? "Add to Cart" : "Out of Stock"} disabled={!product?.inStock} />
+                                <Button 
+                                    className={`btn ${ product?.inStock ? `btn-primary` : `btn-outline-primary`}`} 
+                                    icon={product?.inStock && <FaShoppingCart className="icon-vr-align mr-8-px"/>} 
+                                    text={product?.inStock ? "Add to Cart" : "Out of Stock"}
+                                    onClick={() => addToCart(product)} 
+                                    disabled={!product?.inStock} 
+                                />
                             }
                             <Button className="btn btn-outline-secondary" icon={<AiFillHeart className="icon-vr-align mr-8-px"/>} text="Add To Wishlist" />
                         </div>

@@ -1,7 +1,21 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { AiOutlineMinus, AiOutlinePlus} from "../../../../assets/icons"
 import { Button } from "../../../../Components/index";
 
-export const HorizontalCard = () => {
+export const HorizontalCard = () => {   
+    // const [cartItems, setCartItems] = useState();
+
+    useEffect(async() => {
+        const token = localStorage.getItem("token"); 
+        try {
+            const response = await axios.get("/api/user/cart" , {headers:{authorization: token}})
+            console.log(response);
+        }catch(error) {
+            console.error(error)
+        }
+    }, []) 
+
     return (
         <div className="cart-item grid grid-equal card-shadow">
             <div className="img-container">

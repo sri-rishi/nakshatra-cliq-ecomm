@@ -18,9 +18,9 @@ const AuthProvider = ({children}) => {
                 }
 
             case "LOGOUT":
+                localStorage.clear()
                 return {
-                    ...state,
-                    ...initialUserState
+                    initialUserState
                 }
         }
     }
