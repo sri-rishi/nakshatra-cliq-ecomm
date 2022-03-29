@@ -1,9 +1,8 @@
-import axios from "axios";
 import { useState } from "react";
 import { useAuth } from "../../../Context/auth.context";
 import { Button } from "../../../Components/index";
 import { Link, useNavigate } from "react-router-dom";
-import { signInHandler } from "../../../data/sever-request";
+import { signInHandler } from "../../../api-calls";
 
 export const SignUp = () => {
     const [isUserAgree, setIsUserAgree] = useState(false);

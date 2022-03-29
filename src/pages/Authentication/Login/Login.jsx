@@ -1,9 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState} from "react";
-import axios from "axios";
 import { useAuth } from "../../../Context/auth.context";
 import { Button } from "../../../Components/index";
-import { loginHandler } from "../../../data/sever-request";
+import { loginHandler } from "../../../api-calls";
 
 
 export const Login = () => {
@@ -16,7 +15,7 @@ export const Login = () => {
         e.preventDefault();
         loginHandler(userEmail, userPassword, authDispatch, navigate);
     }
-    
+
     return (
         <main className="login-main flex-row align-center justify-center">
             <form className="form-box login-form" action="#">

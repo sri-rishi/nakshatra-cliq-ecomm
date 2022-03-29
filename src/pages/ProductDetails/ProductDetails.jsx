@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {FaShippingFast,MdEventAvailable, FaShoppingCart, AiFillHeart, MdEventBusy} from "../../assets/icons";
 import { Button, Navbar, Ratings, TextBadgeSquare } from "../../Components/index";
-import { getProductByIdfromServer } from "../../data/sever-request";
+import { getProductByIdfromServer } from "../../api-calls";
 
 export const ProductDetails = () => {
     const [product, setProduct] = useState();
