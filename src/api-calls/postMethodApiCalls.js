@@ -35,4 +35,16 @@ const loginHandler = async (userEmail, userPassword, authDispatch, navigate) => 
     }
 }; 
 
-export {signInHandler, loginHandler};
+const postCartItems =  async(product) => {
+  const token = localStorage.getItem("token"); 
+  try {
+      const response = await axios.post("/api/user/cart", {product}, {headers:{authorization: token}});
+      if(response.status === 201) {
+          console.log(response);
+      }
+  } catch(error) {
+      console.error(error);
+  } 
+}
+
+export {signInHandler, loginHandler, postCartItems};
