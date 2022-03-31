@@ -15,7 +15,24 @@ export const SignUp = () => {
         password: "",
     });
 
-    const signupHandler =(e) => {
+
+    const passwordPattern =
+    /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{9,16}$/;
+    const validatePassword = passwordPattern.test(userDetails.password);
+
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    const validateEmail = emailPattern.test(userDetails.email);
+
+    const disableButton = () => {
+        return (
+        userDetails.firstName !== "" &&
+        userDetails.secondName !== "" &&
+        validateEmail &&
+        validatePassword
+        )
+    }
+
+    const signupHandler = (e) => {
         e.preventDefault()
         signInHandler(userDetails, authDispatch, navigate);
     }
@@ -87,7 +104,7 @@ export const SignUp = () => {
                     className="form-cta btn btn-primary" 
                     onClick={(e) => signupHandler(e)} 
                     text="Sign Up" 
-                    disabled={!isUserAgree ? true: false}
+                    disabled={!isUserAgree && !disableButton()}
                 />
                 
                 <Link to="/login">

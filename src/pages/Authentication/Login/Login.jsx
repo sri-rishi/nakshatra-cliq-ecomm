@@ -16,6 +16,17 @@ export const Login = () => {
         loginHandler(userEmail, userPassword, authDispatch, navigate);
     }
 
+    const passwordPattern =
+    /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{9,16}$/;
+    const validatePassword = passwordPattern.test(userPassword);
+
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    const validateEmail = emailPattern.test(userEmail);
+
+    const disableLoginButton = () => {
+        return (validateEmail && validatePassword);
+    }
+  
     return (
         <main className="login-main flex-row align-center justify-center">
             <form className="form-box login-form" action="#">
@@ -52,7 +63,7 @@ export const Login = () => {
                     <p className="p-highlight login-p">Forgot Your Password</p>
                 </div>
             
-                <Button className="form-cta btn btn-primary" onClick={(e) => signinHandler(e)} text="Login"/>
+                <Button className="form-cta btn btn-primary" onClick={(e) => signinHandler(e)} text="Login" disabled={!disableLoginButton()}/>
             
                 <Link to="/signup">
                     <Button className="form-cta btn btn-outline-primary" text="Create New Account" />
