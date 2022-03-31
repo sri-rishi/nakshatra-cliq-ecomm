@@ -5,12 +5,14 @@ import {FaShippingFast,MdEventAvailable, FaShoppingCart, AiFillHeart, MdEventBus
 import { Button, Navbar, Ratings, TextBadgeSquare } from "../../Components/index";
 import { getProductByIdfromServer } from "../../api-calls";
 import { findItemInArray } from "../../Helper";
+import { useWishlist } from "../../Context/wishlist.context";
 
 export const ProductDetails = () => {
     const [product, setProduct] = useState();
     const [loading, setLoading] = useState(true);
     const {productId} = useParams();
     const {cart, addToCart} = useCart();
+    const {wishlist, addToWishlist} = useWishlist();
 
     useEffect(() => {
         getProductByIdfromServer(productId, setProduct, setLoading);
@@ -66,7 +68,7 @@ export const ProductDetails = () => {
                                     disabled={!product?.inStock} 
                                 />
                             }
-                            <Button className="btn btn-outline-secondary" icon={<AiFillHeart className="icon-vr-align mr-8-px"/>} text="Add To Wishlist" />
+                            <Button className="btn btn-outline-secondary" icon={<AiFillHeart className="icon-vr-align mr-8-px"/>} text={findItemInArray(wishlist, product?._id) ? "Added To Wishlist" : "Add To Wishlist"} onClick={() => findItemInArray(wishlist, product?._id) ? console.log("phele se hai"): addToWishlist(product)}/>
                         </div>
                     </div>
                 </div>

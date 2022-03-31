@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer, useEffect, useState } from "react";
+import { createContext, useContext, useReducer, useEffect} from "react";
 import { postCartItems, getCartItemsFromServer } from "../api-calls";
 
 const CartContext = createContext();
@@ -29,6 +29,9 @@ const cartReducer = (state, action) => {
                 ...state, 
                 cart: action.payload
             }
+
+            default: 
+            return {...state}
     }
 } 
 

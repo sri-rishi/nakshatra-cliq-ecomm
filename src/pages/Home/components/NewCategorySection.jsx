@@ -12,9 +12,8 @@ export const NewCategorySection = () => {
                 {
                     newArrivalCover.map(({id, imageUrl, description, payloadValue}) => (
                         
-                        <Link to="/productlist">
-                            <div 
-                            key={id} 
+                        <Link to="/productlist" key={id}>
+                            <div  
                             className="new-div-box overlay-box" 
                             onClick={() => filterDispatch({type: "BY_NEW_CATEGORY", payload: payloadValue})}
                             >

@@ -1,11 +1,15 @@
 import { NavLink } from "react-router-dom";
-import {FaUserCircle, AiFillHeart, FaShoppingCart, GiHamburgerMenu} from "../../assets/icons";
+import {AiFillHeart, FaShoppingCart, GiHamburgerMenu} from "../../assets/icons";
 import { useAuth } from "../../Context/auth.context";
+import { useCart } from "../../Context/cart.context";
+import { useWishlist } from "../../Context/wishlist.context";
 import { Button } from "../index";
 import { SearchBar } from "./SearchBar";
 
 export const Navbar = () => {
     const {isUserLoggedIn, user} = useAuth();
+    const {wishlist} = useWishlist();
+    const {cart} = useCart();
     return (
         <div>
             <nav className="nav-box navbar-box flex-row align-center justify-evenly">
@@ -23,7 +27,10 @@ export const Navbar = () => {
                 <div className="nav-section flex-row align-center justify-center">
                     {
                          <NavLink to="/user/user-profile">
-                            <Button text={isUserLoggedIn ? user.firstName : "Login"} className={`btn ${isUserLoggedIn ? "card-shadow primary-color-text font-weight-5" : "btn-primary"} mr-1 md-screen-hidden`} />
+                            <Button 
+                                text={isUserLoggedIn ? user.firstName : "Login"} 
+                                className={`btn ${isUserLoggedIn ? "card-shadow primary-color-text font-weight-5" : "btn-primary"} mr-1 md-screen-hidden`} 
+                            />
                         </NavLink>
                     }
                   
@@ -31,13 +38,13 @@ export const Navbar = () => {
                         <li className="nav-items nav-cta-icon">
                             <NavLink to="/user/wishlist">
                                 <AiFillHeart className="icon-vr-align nav-cta-icon"/>
-                                <span className="icon-badge number-sm-badge">9</span>
+                                {wishlist.length ? <span className="icon-badge number-sm-badge">{wishlist.length}</span> : ""}
                             </NavLink>
                         </li>
                         <li className="nav-items nav-cta-icon">
                             <NavLink to="/user/cart">
                                 <FaShoppingCart className="icon-vr-align nav-cta-icon"/>
-                                <span className="icon-badge number-sm-badge">9</span>
+                                {cart.length ? <span className="icon-badge number-sm-badge">{cart.length}</span> : ""}
                             </NavLink>
                         </li>
                     </ul>

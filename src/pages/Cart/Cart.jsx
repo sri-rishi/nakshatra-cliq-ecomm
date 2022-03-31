@@ -11,7 +11,7 @@ export const Cart = () => {
             <main className="cart-main grid gap-1 justify-center">
                 <div className="grid">
                     <div className="cart-heading card-shadow">
-                        <p className="xsm-heading font-weight-6">My Cart({cart.length})</p>
+                        <p className="xsm-heading font-weight-6">My Cart({cart.length} item)</p>
                     </div>
                     {
                        cart && cart.map((cartItem)  => (
