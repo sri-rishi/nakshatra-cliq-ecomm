@@ -35,16 +35,29 @@ const loginHandler = async (userEmail, userPassword, authDispatch, navigate) => 
     }
 }; 
 
-const postCartItems =  async(product) => {
+const postCartItems =  async(product, cartDispatch) => {
   const token = localStorage.getItem("token"); 
   try {
       const response = await axios.post("/api/user/cart", {product}, {headers:{authorization: token}});
-      if(response.status === 201) {
+      if(response.status === 201 || response.status === 200) {
           console.log(response);
+          cartDispatch({type: "SET_CART", payload: response.data.cart})
       }
   } catch(error) {
       console.error(error);
   } 
 }
 
-export {signInHandler, loginHandler, postCartItems};
+const updateQuantityInCart = async(id, type, cartDispatch) => {
+  const token = localStorage.getItem("token");
+  try {
+      const response = await axios.post(`/api/user/cart/${id}`, {action: {type: type}}, {headers:{authorization: token}});
+      if(response?.data?.cart) {
+        cartDispatch({type: "SET_CART", payload: response.data.cart});
+      }
+  }catch(e) {
+      console.error(e);
+  }
+}
+
+export {signInHandler, loginHandler, postCartItems, updateQuantityInCart};
