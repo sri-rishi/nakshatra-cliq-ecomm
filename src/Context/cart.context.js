@@ -1,26 +1,36 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer, useEffect, useState } from "react";
+import { postCartItems, getCartItemsFromServer } from "../api-calls";
 
 const CartContext = createContext();
 
 const CartProvider = ({children}) => {
-    const cartReducer = (state, action) => {
-        switch(action.type) {
-            case "SET_CART":
-                return {
-                    ...state, 
-                    cart: action.payload
-                }
-        }
-    } 
+
+    const addToCart = (product) => {
+        postCartItems(product, dispatch)
+    }
 
     const [state, dispatch] = useReducer(cartReducer, {cart: []});
+
+    useEffect(() => {
+        getCartItemsFromServer(dispatch);
+    }, []); 
     
     return (
-        <CartContext.Provider value={{cart: state.cart, cartDispatch: dispatch}}>
+        <CartContext.Provider value={{cart: state.cart, cartDispatch: dispatch, addToCart}}>
             {children}
         </CartContext.Provider>
     )
 }
+
+const cartReducer = (state, action) => {
+    switch(action.type) {
+        case "SET_CART":
+            return {
+                ...state, 
+                cart: action.payload
+            }
+    }
+} 
 
 const useCart = () => useContext(CartContext);
 

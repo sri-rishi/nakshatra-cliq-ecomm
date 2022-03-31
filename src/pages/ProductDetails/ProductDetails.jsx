@@ -1,22 +1,21 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import {useCart} from "../../Context/cart.context";
 import {FaShippingFast,MdEventAvailable, FaShoppingCart, AiFillHeart, MdEventBusy} from "../../assets/icons";
 import { Button, Navbar, Ratings, TextBadgeSquare } from "../../Components/index";
-import { getProductByIdfromServer, postCartItems } from "../../api-calls";
+import { getProductByIdfromServer } from "../../api-calls";
+import { findItemInArray } from "../../Helper";
 
 export const ProductDetails = () => {
     const [product, setProduct] = useState();
     const [loading, setLoading] = useState(true);
     const {productId} = useParams();
+    const {cart, addToCart} = useCart();
 
     useEffect(() => {
         getProductByIdfromServer(productId, setProduct, setLoading);
-    }, [productId])
+    }, [productId]);
 
-    const addToCart = (product) => {
-        postCartItems(product)
-    }
 
     if(loading) {
         return <div>Loading....</div>
@@ -62,8 +61,8 @@ export const ProductDetails = () => {
                                 <Button 
                                     className={`btn ${ product?.inStock ? `btn-primary` : `btn-outline-primary`}`} 
                                     icon={product?.inStock && <FaShoppingCart className="icon-vr-align mr-8-px"/>} 
-                                    text={product?.inStock ? "Add to Cart" : "Out of Stock"}
-                                    onClick={() => addToCart(product)} 
+                                    text={findItemInArray(cart, product?._id) ? "Added to Cart" : "Add To Cart"}
+                                    onClick={() => findItemInArray(cart, product._id) ? console.log("Phele se hai") : addToCart(product) } 
                                     disabled={!product?.inStock} 
                                 />
                             }

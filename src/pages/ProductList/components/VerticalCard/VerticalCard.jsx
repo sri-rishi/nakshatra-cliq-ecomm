@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 import { AiFillHeart, FaShoppingCart} from "../../../../assets/icons";
 import { Button, TextBadgeSquare, Ratings } from "../../../../Components/index";
+import { useCart } from "../../../../Context/cart.context";
+import { findItemInArray } from "../../../../Helper";
 
 
 export const VerticalCard = (props) => {
-    const {_id, brandName,categoryName,imageSrc,inStock,fastDelivery,newArrival,comingSoon,interestCategory,price,ratings,description} = props.productItems
+    const {_id, brandName,categoryName,imageSrc,inStock,fastDelivery,newArrival,comingSoon,interestCategory,price,ratings,description} = props.productItems;
+    const {addToCart, cart} = useCart();
+
     return (
         <div className={`card card-vl-full-img vl-card card-shadow overlay-box`}>
             <Link to={`/productlist/${_id}`}>
@@ -26,7 +30,13 @@ export const VerticalCard = (props) => {
                     <Ratings text={ratings}/>
                 </div>
                 <div className="card-vl-cta-section align-center">
-                    <Button className="btn btn-primary" icon={<FaShoppingCart className="icon-vr-align mr-1"/>} text="Add To Cart" disabled={!inStock} />
+                    <Button 
+                        className="btn btn-primary" 
+                        icon={<FaShoppingCart className="icon-vr-align mr-1"/>} 
+                        text={findItemInArray(cart, _id) ? "Added to Cart" : "Add to Cart"} 
+                        disabled={!inStock} 
+                        onClick={() => findItemInArray(cart, _id) ? console.log("phele se hai") : addToCart(props.productItems)}
+                    />
                 </div>
             </div>
             {!inStock && <div className="card-overlay-div"><span className="overlay-text-box">{`${comingSoon ? "Coming soon" : "Out Of Stock"}`}</span></div>}
