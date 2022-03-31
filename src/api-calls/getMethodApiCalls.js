@@ -42,4 +42,16 @@ const getCartItemsFromServer = async(cartDispatch) => {
     }
 }
 
-export {getProductByIdfromServer, getTypeCategoriesFromServer, getProductFromServer, getCartItemsFromServer}
+const getWishlistItemsFromServer = async(wishListDispatch) => {
+    const token = localStorage.getItem("token"); 
+    try {
+        const response = await axios.get("/api/user/wishlist" , {headers:{authorization: token}})
+        if(response.status === 200 || response.status === 201) {
+            wishListDispatch({type: "SET_WISHLIST", payload: response.data.wishlist})
+        }
+    }catch(error) {
+        console.error(error)
+    }
+}
+
+export {getProductByIdfromServer, getTypeCategoriesFromServer, getProductFromServer, getCartItemsFromServer, getWishlistItemsFromServer}

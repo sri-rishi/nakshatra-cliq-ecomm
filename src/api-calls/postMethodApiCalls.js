@@ -52,7 +52,7 @@ const updateQuantityInCart = async(id, type, cartDispatch) => {
   const token = localStorage.getItem("token");
   try {
       const response = await axios.post(`/api/user/cart/${id}`, {action: {type: type}}, {headers:{authorization: token}});
-      if(response?.data?.cart) {
+      if((response.status === 201 || response.status === 200)) {
         cartDispatch({type: "SET_CART", payload: response.data.cart});
       }
   }catch(e) {
@@ -60,4 +60,17 @@ const updateQuantityInCart = async(id, type, cartDispatch) => {
   }
 }
 
-export {signInHandler, loginHandler, postCartItems, updateQuantityInCart};
+const postWishlistItem = async(product, wishlistDispatch) => {
+  const token = localStorage.getItem("token"); 
+  try {
+      const response = await axios.post("/api/user/wishlist", {product}, {headers:{authorization: token}});
+      if(response.status === 201 || response.status === 200) {
+          console.log(response);
+          wishlistDispatch({type: "SET_WISHLIST", payload: response.data.wishlist})
+      }
+  } catch(error) {
+      console.error(error);
+  }
+}
+
+export {signInHandler, loginHandler, postCartItems, updateQuantityInCart, postWishlistItem};
