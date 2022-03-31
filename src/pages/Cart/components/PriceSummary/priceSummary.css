@@ -13,3 +13,9 @@
 .price-value{
      padding-bottom: 1rem;
 }
+
+@media only screen and (max-width: 45em) { 
+     .price-detail-section {
+         width: 100%;
+     }
+ }
