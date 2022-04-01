@@ -3,7 +3,7 @@ const findItemInArray = (array, id) => {
     return array.find(item => item._id === id);
 } 
 
-const totalOgPrice = (array) => {
+const totalOriginalPrice = (array) => {
     return array.reduce((total, { price, qty }) => (total = total + price.original * qty), 0)
 }
 
@@ -11,4 +11,4 @@ const totalDiscount = (array) => {
     return array.reduce((total, {price, qty}) => (total = total + (price.original - price.discounted) * qty), 0);
 }
 
-export {findItemInArray, totalDiscount, totalOgPrice};
+export {findItemInArray, totalDiscount, totalOriginalPrice};
