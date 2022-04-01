@@ -88,3 +88,13 @@
 .gap-8-px {
     gap: 8px;
 }
+
+.empty-box {
+    width: 100vw;
+    height: 100vh;
+    margin-top: 3rem;
+}
+
+.empty-box-image {
+    width: 50%;
+}

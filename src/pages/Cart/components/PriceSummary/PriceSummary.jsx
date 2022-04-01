@@ -16,7 +16,7 @@ export const PriceSummary = () => {
             </div>
             <div className="flex-row align-center justify-between border-bottom">
                 <h6 className="xsm-heading">Total Amount</h6>
-                <p>{totalOgPrice(cart) - totalDiscount(cart)}</p>
+                <p>{totalOgPrice(cart) - totalDiscount(cart) + 899}</p>
             </div>
             <div className="flex-column gap-1">
                 <p>You will save &#8377;{totalDiscount(cart)} on this order</p>

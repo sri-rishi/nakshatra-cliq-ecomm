@@ -19,11 +19,11 @@ const signInHandler = async (userDetails, authDispatch, navigate) => {
     }
 };
 
-const loginHandler = async (userEmail, userPassword, authDispatch, navigate) => {
+const loginHandler = async (userInput, authDispatch, navigate) => {
     try {
       const response = await axios.post(`/api/auth/login`, {
-        email: userEmail,
-        password: userPassword,
+        email: userInput.email,
+        password: userInput.password,
       });
       if(response.status === 200 || response.status === 201) {
         authDispatch({type: "LOGIN", payload: response.data.foundUser})

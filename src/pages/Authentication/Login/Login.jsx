@@ -7,24 +7,19 @@ import { loginHandler } from "../../../api-calls";
 
 export const Login = () => {
     const {authDispatch} = useAuth();
-    const [userEmail, setUserEmail] = useState("");
-    const [userPassword, setUserPassword] = useState("");
+    const [userInput, setUserInput] = useState({
+        email: "",
+        password: ""
+    })
     const navigate = useNavigate();
 
     const signinHandler = (e) => {
         e.preventDefault();
-        loginHandler(userEmail, userPassword, authDispatch, navigate);
+        loginHandler(userInput, authDispatch, navigate);
     }
 
-    const passwordPattern =
-    /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{9,16}$/;
-    const validatePassword = passwordPattern.test(userPassword);
-
-    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    const validateEmail = emailPattern.test(userEmail);
-
     const disableLoginButton = () => {
-        return (validateEmail && validatePassword);
+        return (userInput.email !== "" && userInput.password !== "");
     }
   
     return (
@@ -41,8 +36,8 @@ export const Login = () => {
                         id="email" 
                         name="email" 
                         placeholder="Enter Your Email"
-                        value={userEmail} 
-                        onChange={(e) => setUserEmail(e.target.value)}
+                        value={userInput.email} 
+                        onChange={(e) => setUserInput({...userInput, email: e.target.value})}
                         required
                     />
                 </label>
@@ -54,8 +49,8 @@ export const Login = () => {
                         id="password" 
                         name="password" 
                         placeholder="Enter Your Password" 
-                        value={userPassword}
-                        onChange={(e) => setUserPassword(e.target.value)}
+                        value={userInput.password}
+                        onChange={(e) => setUserInput({...userInput, password: e.target.value})}
                         required
                     />
                 </label>
