@@ -12,7 +12,8 @@ import fujifilmLogoImage from "./images/Fujifilm_logo_logotype-removebg-preview.
 import instantInterestLogoImage from "./images/instantIntrest.jpg";
 import travelInterestLogoImage from "./images/travelIntrest.jpg";
 import weddingInterestLogoImage from "./images/weddingIntrest.jpg";
-import wildlifeInterestLogoImage from "./images/wildLifeIntrest.jpg"
+import wildlifeInterestLogoImage from "./images/wildLifeIntrest.jpg";
+import emptyWishlistImage from "./images/no_data_found-removebg-preview.png";
 
 
-export {heroCoverImage, comingSoonCoverImage, newArrivalCoverImage, dslrCoverImage, compactCameraCoverImage, mirrorLessCoverImage, bridgeCameraCoverImage, sonyLogoImage, canonLogoImage, nikonLogoImage, fujifilmLogoImage, instantInterestLogoImage, travelInterestLogoImage, weddingInterestLogoImage, wildlifeInterestLogoImage};
+export {heroCoverImage, comingSoonCoverImage, newArrivalCoverImage, dslrCoverImage, compactCameraCoverImage, mirrorLessCoverImage, bridgeCameraCoverImage, sonyLogoImage, canonLogoImage, nikonLogoImage, fujifilmLogoImage, instantInterestLogoImage, travelInterestLogoImage, weddingInterestLogoImage, wildlifeInterestLogoImage, emptyWishlistImage};

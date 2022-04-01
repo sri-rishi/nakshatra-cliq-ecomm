@@ -1,4 +1,5 @@
-import { Navbar } from "../../Components/index/index";
+import { emptyWishlistImage } from "../../assets/main-images";
+import { Navbar , EmptyPage} from "../../Components/index/index";
 import { useWishlist } from "../../Context/wishlist.context";
 import { WishlistitemCard } from "./components/WishlistItemCard";
 
@@ -7,7 +8,12 @@ export const Wishlist = () => {
     return (
         <>
             <Navbar />
-            <main className="wishlist-main-box grid gap-3">
+            {
+                !wishlist.length 
+                ?
+                <EmptyPage imageSrc={emptyWishlistImage} altText="Empty wishlist" pageName="Wishlist"/>
+                :
+                <main className="wishlist-main-box grid gap-3">
                 <div className="wish-head">
                     <h2 className="sm-heading">My Wishlist ({wishlist.length} item)</h2>
                 </div>
@@ -19,6 +25,7 @@ export const Wishlist = () => {
                     }
                 </div>
             </main>
+            }
         </>
     ) 
 }
