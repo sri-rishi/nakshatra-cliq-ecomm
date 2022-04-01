@@ -1,6 +1,6 @@
 import { emptyWishlistImage } from "../../assets/main-images";
 import { Navbar , EmptyPage} from "../../Components/index/index";
-import { useWishlist } from "../../Context/wishlist.context";
+import { useWishlist } from "../../Context";
 import { WishlistitemCard } from "./components/WishlistItemCard";
 
 export const Wishlist = () => {

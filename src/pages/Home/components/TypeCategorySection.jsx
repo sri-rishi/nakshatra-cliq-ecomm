@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { useData } from "../../../Context/data.context"
-import { useFilteredData } from "../../../Context/filterData.context";
+import { useData , useFilteredData} from "../../../Context";
 
 export const TypeCategorySection = () => {
     const {typeCategoriesData} = useData();

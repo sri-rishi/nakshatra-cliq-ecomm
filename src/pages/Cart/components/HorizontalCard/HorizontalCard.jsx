@@ -3,9 +3,11 @@ import { deleteFromCart, updateQuantityInCart } from "../../../../api-calls";
 import { AiOutlineMinus, AiOutlinePlus} from "../../../../assets/icons"
 import { Button } from "../../../../Components/index";
 import { useCart } from "../../../../Context/cart.context";
+import { useWishlist } from "../../../../Context/wishlist.context";
 
 export const HorizontalCard = ({cartItem}) => {   
     const {cartDispatch} = useCart();
+    const {addToWishlist} = useWishlist();
 
     const removeFromCart = (id) => {
        deleteFromCart(id, cartDispatch)
@@ -15,6 +17,11 @@ export const HorizontalCard = ({cartItem}) => {
         if(type === "increment" || type === "decrement" && qty > 1) {
             updateQuantityInCart(id, type, cartDispatch);
         }
+    }
+
+    const moveToWishlist = (id, product) => {
+        addToWishlist(product)
+        removeFromCart(id);
     }
 
     return (
@@ -48,7 +55,7 @@ export const HorizontalCard = ({cartItem}) => {
                 </div>
                 <div className="cart-cta-div flex-column gap-1 justify-center">
                     <Button className="btn btn-gray-light" text="Remove from Cart" onClick={() => removeFromCart(cartItem._id)}/>
-                    <Button className="btn btn-primary-light bg-transparent" text="Move to Wishlist" />
+                    <Button className="btn btn-primary-light bg-transparent" text="Move to Wishlist" onClick={() => moveToWishlist(cartItem._id, cartItem)}/>
                 </div>
             </div>
         </div>

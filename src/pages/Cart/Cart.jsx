@@ -1,5 +1,5 @@
 import { EmptyPage, Navbar } from "../../Components/index"
-import { useCart } from "../../Context/cart.context"
+import { useCart } from "../../Context";
 import { HorizontalCard } from "./components/HorizontalCard/HorizontalCard"
 import { PriceSummary } from "./components/index"
 

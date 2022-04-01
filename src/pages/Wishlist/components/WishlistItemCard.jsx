@@ -1,8 +1,7 @@
 import { Button } from "../../../Components/index/index";
 import { FaShoppingCart } from "../../../assets/icons";
 import { findItemInArray } from "../../../Helper";
-import { useCart } from "../../../Context/cart.context";
-import { useWishlist } from "../../../Context/wishlist.context";
+import { useCart, useWishlist } from "../../../Context"
 import { deleteFromWishList } from "../../../api-calls";
 
 export const WishlistitemCard = ({wishlistItem}) => {

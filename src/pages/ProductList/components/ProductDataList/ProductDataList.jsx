@@ -1,5 +1,5 @@
 import { VerticalCard } from "../VerticalCard/VerticalCard"
-import { useFilteredData } from "../../../../Context/filterData.context"
+import { useFilteredData } from "../../../../Context";
 
 export const ProductDataList = () => {
     const {filteredByFastDeliveryData} = useFilteredData();

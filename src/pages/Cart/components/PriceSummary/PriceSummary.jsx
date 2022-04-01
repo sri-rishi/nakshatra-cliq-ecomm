@@ -1,5 +1,5 @@
 import { Button } from "../../../../Components/index";
-import { useCart} from "../../../../Context/cart.context";
+import { useCart} from "../../../../Context";
 import { totalDiscount, totalOgPrice } from "../../../../Helper";
 
 

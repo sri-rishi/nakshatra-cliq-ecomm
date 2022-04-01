@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { Button, Navbar } from "../../Components/index";
-import { useAuth } from "../../Context/auth.context"
+import { useAuth } from "../../Context";
 
 export const UserProfile = () => {
     const {user, authDispatch} = useAuth();
+
     return (
         <>
             <Navbar />

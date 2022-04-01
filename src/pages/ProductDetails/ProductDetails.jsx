@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import {useCart} from "../../Context/cart.context";
 import {FaShippingFast,MdEventAvailable, FaShoppingCart, AiFillHeart, MdEventBusy} from "../../assets/icons";
 import { Button, Navbar, Ratings, TextBadgeSquare } from "../../Components/index";
 import { getProductByIdfromServer } from "../../api-calls";
 import { findItemInArray } from "../../Helper";
-import { useWishlist } from "../../Context/wishlist.context";
+import { useWishlist, useCart } from "../../Context";
+
 
 export const ProductDetails = () => {
     const [product, setProduct] = useState();

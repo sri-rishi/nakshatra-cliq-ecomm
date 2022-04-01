@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
 import { AiFillHeart, FaShoppingCart} from "../../../../assets/icons";
-import { products } from "../../../../backend/db/products";
 import { Button, TextBadgeSquare, Ratings } from "../../../../Components/index";
-import { useCart } from "../../../../Context/cart.context";
-import { useWishlist } from "../../../../Context/wishlist.context";
+import { useCart, useWishlist } from "../../../../Context";
 import { findItemInArray } from "../../../../Helper";
 
 

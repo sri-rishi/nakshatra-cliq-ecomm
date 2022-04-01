@@ -1,8 +1,6 @@
 import { NavLink } from "react-router-dom";
 import {AiFillHeart, FaShoppingCart, GiHamburgerMenu} from "../../assets/icons";
-import { useAuth } from "../../Context/auth.context";
-import { useCart } from "../../Context/cart.context";
-import { useWishlist } from "../../Context/wishlist.context";
+import {useAuth, useWishlist, useCart} from "../../Context";
 import { Button } from "../index";
 import { SearchBar } from "./SearchBar";
 
@@ -38,13 +36,13 @@ export const Navbar = () => {
                         <li className="nav-items nav-cta-icon">
                             <NavLink to="/user/wishlist">
                                 <AiFillHeart className="icon-vr-align nav-cta-icon"/>
-                                {wishlist.length ? <span className="icon-badge number-sm-badge">{wishlist.length}</span> : ""}
+                                {wishlist.length && isUserLoggedIn ? <span className="icon-badge number-sm-badge">{wishlist.length}</span> : ""}
                             </NavLink>
                         </li>
                         <li className="nav-items nav-cta-icon">
                             <NavLink to="/user/cart">
                                 <FaShoppingCart className="icon-vr-align nav-cta-icon"/>
-                                {cart.length ? <span className="icon-badge number-sm-badge">{cart.length}</span> : ""}
+                                {cart.length && isUserLoggedIn ? <span className="icon-badge number-sm-badge">{cart.length}</span> : ""}
                             </NavLink>
                         </li>
                     </ul>

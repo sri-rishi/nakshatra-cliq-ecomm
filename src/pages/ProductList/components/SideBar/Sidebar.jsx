@@ -1,7 +1,6 @@
 import { Button } from "../../../../Components/index"
-import { useData } from "../../../../Context/data.context"
-import { useFilteredData } from "../../../../Context/filterData.context"
-import { brandLogoData, typeCategorySectionItems, interestCoverData, ratingData, sortByPriceData } from "../../../../data"
+import { useFilteredData, useData } from "../../../../Context";
+import { brandLogoData, interestCoverData, ratingData, sortByPriceData } from "../../../../data"
 
 export const SideBar = () => {
     const {typeCategoriesData} = useData();
