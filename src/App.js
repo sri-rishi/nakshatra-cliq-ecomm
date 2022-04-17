@@ -1,10 +1,12 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import { Cart, HomePage, MockAPI, ProductList, Wishlist, ProductDetails, PrivateRoute, SignUp, Login, UserProfile } from './pages/index';
+import { Toast } from './Components/index';
 
 function App() {
   return (
     <div className="App">
+      <Toast />
       <Routes>
         <Route path="/" element={<HomePage />}/>
         <Route path="/productlist" element={<ProductList />} />

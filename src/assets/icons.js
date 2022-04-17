@@ -6,6 +6,7 @@ import {BsCodeSlash, BsGithub, BsTwitter} from "react-icons/bs";
 import {ImLinkedin} from "react-icons/im";
 import {SiMaildotru} from "react-icons/si";
 import {MdEventAvailable, MdEventBusy} from "react-icons/md";
+import { VscClose} from "react-icons/vsc"
 
 
-export {FaUserCircle, AiFillHeart, AiOutlinePlus, AiOutlineMinus, FaShoppingCart, GoSearch, GiHamburgerMenu, FaSearch, BsCodeSlash, BsGithub, ImLinkedin, BsTwitter, SiMaildotru,FaShippingFast, MdEventAvailable, MdEventBusy};
+export {FaUserCircle, AiFillHeart, AiOutlinePlus, AiOutlineMinus, FaShoppingCart, GoSearch, GiHamburgerMenu, FaSearch, BsCodeSlash, BsGithub, ImLinkedin, BsTwitter, SiMaildotru,FaShippingFast, MdEventAvailable, MdEventBusy, VscClose};

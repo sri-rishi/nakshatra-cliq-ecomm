@@ -1,5 +1,5 @@
 .login-main {
-    margin-top: 10rem;
+    margin: 4rem 0 2rem;
 }
 
 .login-form {
@@ -8,4 +8,7 @@
 
 .login-p:hover {
     color: var(--primary-dark-color)
+}
+.bg-primary-dark {
+    background: var(--primary-dark-color);
 }

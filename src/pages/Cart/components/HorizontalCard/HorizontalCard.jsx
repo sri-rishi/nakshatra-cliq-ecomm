@@ -2,26 +2,27 @@ import axios from "axios";
 import { deleteFromCart, updateQuantityInCart } from "../../../../api-calls";
 import { AiOutlineMinus, AiOutlinePlus} from "../../../../assets/icons"
 import { Button } from "../../../../Components/index";
-import { useCart } from "../../../../Context/cart.context";
-import { useWishlist } from "../../../../Context/wishlist.context";
+import { useToast, useWishlist, useCart } from "../../../../Context";
 
-export const HorizontalCard = ({cartItem}) => {   
+
+export const HorizontalCard = ({cartItem}) => { 
+    const {setToastData} = useToast();  
     const {cartDispatch} = useCart();
     const {addToWishlist} = useWishlist();
 
     const removeFromCart = (id) => {
-       deleteFromCart(id, cartDispatch)
+       deleteFromCart(id, cartDispatch, setToastData)
     }
 
     const quantityHandler = (id, qty, type) => {
         if(type === "increment" || type === "decrement" && qty > 1) {
-            updateQuantityInCart(id, type, cartDispatch);
+            updateQuantityInCart(id, type, cartDispatch, setToastData);
         }
     }
 
     const moveToWishlist = (id, product) => {
-        addToWishlist(product)
-        removeFromCart(id);
+        addToWishlist(product, setToastData)
+        removeFromCart(id, setToastData);
     }
 
     return (

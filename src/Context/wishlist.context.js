@@ -1,9 +1,12 @@
 import { createContext, useContext, useReducer } from "react";
 import { postWishlistItem } from "../api-calls";
+import { useToast } from "./index";
 
 export const WishlistContext = createContext();
 
 const WishlistProvider = ({children}) => {
+    const {setToastData} = useToast();
+
     const wishlistReducer = (state, action) => {
         switch(action.type) {
             case "SET_WISHLIST":
@@ -17,7 +20,7 @@ const WishlistProvider = ({children}) => {
         }
     }
     const addToWishlist = (product) => {
-        postWishlistItem(product, dispatch);
+        postWishlistItem(product, dispatch, setToastData);
     }
     const [state, dispatch] = useReducer(wishlistReducer, {wishlist: []});
 

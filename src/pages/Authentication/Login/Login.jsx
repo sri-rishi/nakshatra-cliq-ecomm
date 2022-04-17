@@ -1,12 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState} from "react";
-import { useAuth } from "../../../Context";
+import { useAuth, useToast } from "../../../Context";
 import { Button } from "../../../Components/index";
 import { loginHandler } from "../../../api-calls";
 
 
 export const Login = () => {
     const {authDispatch} = useAuth();
+    const {setToastData} = useToast();
     const [userInput, setUserInput] = useState({
         email: "",
         password: ""
@@ -15,7 +16,7 @@ export const Login = () => {
 
     const signinHandler = (e) => {
         e.preventDefault();
-        loginHandler(userInput, authDispatch, navigate);
+        loginHandler(userInput, authDispatch, navigate, setToastData);
     }
 
     const disableLoginButton = () => {
