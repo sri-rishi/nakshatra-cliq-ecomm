@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {FaShippingFast,MdEventAvailable, FaShoppingCart, AiFillHeart, MdEventBusy} from "../../assets/icons";
-import { Button, Navbar, Ratings, TextBadgeSquare } from "../../Components/index";
+import { Button, Loader, Navbar, Ratings, TextBadgeSquare } from "../../Components/index";
 import { getProductByIdfromServer } from "../../api-calls";
 import { findItemInArray } from "../../Helper";
 import { useWishlist, useCart } from "../../Context";
@@ -20,7 +20,7 @@ export const ProductDetails = () => {
 
 
     if(loading) {
-        return <div>Loading....</div>
+        return <Loader />
     }
 
     return (

@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { useAuth } from "../../../Context";
+import { useAuth, useToast } from "../../../Context";
 import { Button } from "../../../Components/index";
 import { Link, useNavigate } from "react-router-dom";
 import { signInHandler } from "../../../api-calls";
 
 export const SignUp = () => {
     const [isUserAgree, setIsUserAgree] = useState(false);
+    const {setToastData} = useToast();
     const {authDispatch} = useAuth();
     const navigate = useNavigate();
     const [userDetails, setUserDetails] = useState({
@@ -34,7 +35,7 @@ export const SignUp = () => {
 
     const signupHandler = (e) => {
         e.preventDefault()
-        signInHandler(userDetails, authDispatch, navigate);
+        signInHandler(userDetails, authDispatch, navigate, setToastData);
     }
 
     return (

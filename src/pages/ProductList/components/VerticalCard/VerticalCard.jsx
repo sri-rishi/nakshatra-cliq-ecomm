@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import { AiFillHeart, FaShoppingCart} from "../../../../assets/icons";
 import { Button, TextBadgeSquare, Ratings } from "../../../../Components/index";
-import { useCart, useWishlist } from "../../../../Context";
+import { useAuth, useCart, useToast, useWishlist } from "../../../../Context";
 import { findItemInArray } from "../../../../Helper";
 
 
 export const VerticalCard = (props) => {
     const {addToCart, cart} = useCart();
+    const {isUserLoggedIn} = useAuth();
+    const {setToastData} = useToast();
     const {addToWishlist, wishlist} = useWishlist();
     
     const {
@@ -24,6 +26,22 @@ export const VerticalCard = (props) => {
         description
     } = props.productItems;
 
+    const showLoginRequest = () => {
+        setToastData({
+            toastText: "Kindly login first",
+            toastDisplay: true,
+            toastType: "warn"
+        })
+    }
+
+    const showAlreadyToast = (pageName) => {
+        setToastData({
+            toastText: `Already added to ${pageName}`,
+            toastDisplay: true,
+            toastType: "warn"
+        })
+    }
+
     return (
         <div className={`card card-vl-full-img vl-card card-shadow overlay-box`}>
             <Link to={`/productlist/${_id}`}>
@@ -39,7 +57,7 @@ export const VerticalCard = (props) => {
                     <Button 
                     className={`card-btn-transparent card-like-btn ${findItemInArray(wishlist, _id)?  "added-in-wishlist": ""}`} 
                     icon={<AiFillHeart className="icon-vr-align"/>} 
-                    onClick={() => findItemInArray(wishlist, _id) ? console.log("Phele se hai") : addToWishlist(props.productItems)} 
+                    onClick={() => !isUserLoggedIn ? showLoginRequest() : findItemInArray(wishlist, _id)  ? showAlreadyToast("wishlist") : addToWishlist(props.productItems) } 
                     />
                 </div>
                 <div className="card-desc flex-column gap-1">
@@ -54,7 +72,7 @@ export const VerticalCard = (props) => {
                         icon={<FaShoppingCart className="icon-vr-align mr-1"/>} 
                         text={findItemInArray(cart, _id) ? "Added to Cart" : "Add to Cart"} 
                         disabled={!inStock} 
-                        onClick={() => findItemInArray(cart, _id) ? console.log("phele se hai") : addToCart(props.productItems)}
+                        onClick={() => !isUserLoggedIn ? showLoginRequest() : findItemInArray(cart, _id) ? showAlreadyToast("cart") : addToCart(props.productItems)}
                     />
                 </div>
             </div>

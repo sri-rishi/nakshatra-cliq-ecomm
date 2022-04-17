@@ -1,12 +1,14 @@
 import { createContext, useContext, useReducer, useEffect} from "react";
 import { postCartItems, getCartItemsFromServer } from "../api-calls";
+import { useToast } from "./index";
 
 const CartContext = createContext();
 
 const CartProvider = ({children}) => {
+    const {setToastData} = useToast();
 
     const addToCart = (product) => {
-        postCartItems(product, dispatch)
+        postCartItems(product, dispatch, setToastData);
     }
 
     const [state, dispatch] = useReducer(cartReducer, {cart: []});

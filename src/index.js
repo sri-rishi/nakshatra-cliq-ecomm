@@ -10,6 +10,7 @@ import { FilterDataProvider } from './Context/filterData.context';
 import { AuthProvider } from './Context/auth.context';
 import { CartProvider } from './Context/cart.context';
 import { WishlistProvider } from './Context/wishlist.context';
+import { ToastProvider } from './Context/toast.context';
 
 // Call make Server
 makeServer();
@@ -19,15 +20,17 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <AuthProvider>
+      <ToastProvider>
         <WishlistProvider>
           <CartProvider>
             <DataProvider>
               <FilterDataProvider>
-                <App />
+                  <App />
               </FilterDataProvider>
             </DataProvider>
           </CartProvider>
         </WishlistProvider>
+        </ToastProvider>
       </AuthProvider>
     </Router>
   </React.StrictMode>,
