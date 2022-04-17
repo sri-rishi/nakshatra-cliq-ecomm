@@ -38,3 +38,7 @@
 .card-dis-price {
     font-size: 1.3rem;
 }
+
+.added-in-wishlist {
+    color: var(--dark-red-color);
+}

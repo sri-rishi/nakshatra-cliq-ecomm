@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { getProductFromServer, getTypeCategoriesFromServer } from "../data/sever-request";
+import { getProductFromServer, getTypeCategoriesFromServer } from "../api-calls";
 
 
 const DataContext = createContext();

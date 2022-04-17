@@ -1,19 +1,22 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {FaShippingFast,MdEventAvailable, FaShoppingCart, AiFillHeart, MdEventBusy} from "../../assets/icons";
 import { Button, Navbar, Ratings, TextBadgeSquare } from "../../Components/index";
-import { useFilteredData } from "../../Context/filterData.context"
-import { getProductByIdfromServer } from "../../data/sever-request";
+import { getProductByIdfromServer } from "../../api-calls";
+import { findItemInArray } from "../../Helper";
+import { useWishlist, useCart } from "../../Context";
+
 
 export const ProductDetails = () => {
     const [product, setProduct] = useState();
     const [loading, setLoading] = useState(true);
     const {productId} = useParams();
+    const {cart, addToCart} = useCart();
+    const {wishlist, addToWishlist} = useWishlist();
 
     useEffect(() => {
         getProductByIdfromServer(productId, setProduct, setLoading);
-    }, [productId])
+    }, [productId]);
 
 
     if(loading) {
@@ -57,9 +60,15 @@ export const ProductDetails = () => {
                         </div>
                         <div className="flex-row justify-around">
                             {
-                                <Button className={`btn ${ product?.inStock ? `btn-primary` : `btn-outline-primary`}`} icon={product?.inStock && <FaShoppingCart className="icon-vr-align mr-8-px"/>} text={product?.inStock ? "Add to Cart" : "Out of Stock"} disabled={!product?.inStock} />
+                                <Button 
+                                    className={`btn ${ product?.inStock ? `btn-primary` : `btn-outline-primary`}`} 
+                                    icon={product?.inStock && <FaShoppingCart className="icon-vr-align mr-8-px"/>} 
+                                    text={findItemInArray(cart, product?._id) ? "Added to Cart" : "Add To Cart"}
+                                    onClick={() => findItemInArray(cart, product._id) ? console.log("Phele se hai") : addToCart(product) } 
+                                    disabled={!product?.inStock} 
+                                />
                             }
-                            <Button className="btn btn-outline-secondary" icon={<AiFillHeart className="icon-vr-align mr-8-px"/>} text="Add To Wishlist" />
+                            <Button className="btn btn-outline-secondary" icon={<AiFillHeart className="icon-vr-align mr-8-px"/>} text={findItemInArray(wishlist, product?._id) ? "Added To Wishlist" : "Add To Wishlist"} onClick={() => findItemInArray(wishlist, product?._id) ? console.log("phele se hai"): addToWishlist(product)}/>
                         </div>
                     </div>
                 </div>

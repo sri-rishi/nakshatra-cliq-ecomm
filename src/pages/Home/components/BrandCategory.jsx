@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { useFilteredData } from "../../../Context/filterData.context"
+import { useFilteredData } from "../../../Context";
 import { brandLogoData } from "../../../data"
 
 

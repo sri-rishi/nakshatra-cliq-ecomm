@@ -19,10 +19,7 @@
 @media only screen and (max-width: 45em) {
     .cart-main {
         grid-template-columns: 1fr;
-    }
-
-    .price-detail-section {
-        width: 100%;
+        grid-template-rows: 1fr;
     }
 }
 
