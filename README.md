@@ -1,34 +1,28 @@
-# cliqTube
+# nakshatra cliq
+Hi folks nakshatra cliq is e-commerce web app for cameras, to check visit link
 
-Hi folks cliqtube is video library based on pahotograpy and videos
-
+https://625c70f093d2611c41d8a599--cool-basbousa-bde642.netlify.app/
 
 ## Features
 
 - HomePage
 
-- VideoListingPage
+- ProductListing Page
 
-- SingleVideoPage
+- ProductDetails Page
 
 - Login/Signup Page
 
-- PlayList Page
+- Cart Page
 
-- Watch Later Page
+- Wishlist Page
 
-- Liked Videos Page
+- User profile page
 
-- Like / DisLike Video
+- Add / Remove from cart
 
-- Add / Remove from Watch Later
+- Add / Remove from wishlist
 
-- Create / Delete PlayList
-
-- Add / Remove Video from PlayList
-
-- Filter Videos According to category
-
-- Search Video
+- Filter Products According to category
 
 - Custom Toasts
