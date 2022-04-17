@@ -1,7 +1,7 @@
 # nakshatra cliq
 Hi folks nakshatra cliq is e-commerce web app for cameras, to check visit link
 
-https://625c70f093d2611c41d8a599--cool-basbousa-bde642.netlify.app/
+https://nakshatra-cliq.netlify.app/
 
 ## Features
 
