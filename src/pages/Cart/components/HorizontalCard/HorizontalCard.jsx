@@ -1,4 +1,3 @@
-import axios from "axios";
 import { deleteFromCart, updateQuantityInCart } from "../../../../api-calls";
 import { AiOutlineMinus, AiOutlinePlus} from "../../../../assets/icons"
 import { Button } from "../../../../Components/index";

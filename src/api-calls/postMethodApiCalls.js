@@ -60,7 +60,7 @@ const postCartItems =  async(product, cartDispatch, setToastData) => {
     if(response.status === 201 || response.status === 200) {
       cartDispatch({type: "SET_CART", payload: response.data.cart})
       setToastData({
-        toastText:"Successfully added to playlist",
+        toastText:"Successfully added to Cart",
         toastDisplay: true,
         toastType: "success"
       })
